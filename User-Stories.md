@@ -7,5 +7,5 @@
 5. As a video editor, I want the XML that is output by the app to be loadable by Adobe Premiere so that I never need to look at raw XML.
 6. As a video editor, I want the XML file that is output to be easily transferable from the phone/tablet to my computer so that I can access it easily when it is time to use it.
 7. As a cameraman, I want to assign each camera a name to be displayed with the camera so that I can identify each camera on screen.
-8. As a cameraman, I want to be able to add notes while filming to each camera, so I cna use this information later when editing the video.
+8. As a cameraman, I want to be able to add notes to each camera while filming, so I can use this information later when editing the video.
 8. As a cameraman, I want to be able to set each camera as either wide or narrow lens and have the area in sight of the camera reflect this setting so that I can easily identify when a camera should have a subject in view.
