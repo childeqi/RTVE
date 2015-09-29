@@ -1,4 +1,4 @@
-Real Time Video Editor Group 2
+##Real Time Video Editor Group 2
 
 Software Developer:
 ######	  Domonic Milesi
