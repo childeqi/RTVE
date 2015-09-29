@@ -2,12 +2,12 @@
 ###Real Time Video Editor Group 2
 
 ######Software Developer:
-    Domonic Milesi
-    Matt Schnur
+Domonic Milesi
+Matt Schnur
 ######Quality Assurance Manager:
-    Arjun Mukherjee
+Arjun Mukherjee
 ######Project Manager:
-    Mengqi Wu
+Mengqi Wu
 
 29 September 2015
 
