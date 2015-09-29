@@ -1,4 +1,4 @@
-###Decision Descriptions:
+##Decision Descriptions:
 
 On 21th September, we had our first meeting with our customer Chris Galgon. After this face-to-face contact, we got a general idea of what kind of application he expects.
 
