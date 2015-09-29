@@ -1,4 +1,5 @@
-##Real Time Video Editor Group 2
+##CS 1530 - SPRINT 1 DELIVERABLE
+###Real Time Video Editor Group 2
 
 Software Developer:
 ######	  Domonic Milesi
@@ -10,4 +11,4 @@ Project Manager:
 
 29 September 2015
 
-###CS 1530 - SPRINT 1 DELIVERABLE
+
