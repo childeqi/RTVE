@@ -1,4 +1,4 @@
-Testing Outline
+##Testing Outline
 
 There are certain functional parts of the system that will need to be tested. A critical feature that needs to be tested is that when a camera is selected on the interface, and a time is recorded, accurate information about the camera and time is recorded. XML output of this data needs to be tested to be accurate as well. A non-functional goal of the user interface is that it needs to be low latency. If the latency of the UI is high then it will interfere with another functional aspect of the software which is support for multiple cameras to have their times recorded simultaneously. 
 A stress test would need to be done with many cameras at variable times. This stress test could be tested using a program developed to simulate many requests for camera timestamps. This program can also record time in between camera requests to see if it’s below a latency standard that will be determined later. 
