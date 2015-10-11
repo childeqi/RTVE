@@ -9,7 +9,8 @@
 ######Project Manager:
 #####Mengqi Wu (childeqi)
 
-The date of due:
-#######13 October 2015
+###
+######The date of due:
+#####13 October 2015
 
 
