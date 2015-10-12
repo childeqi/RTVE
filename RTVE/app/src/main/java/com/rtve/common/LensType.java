@@ -1,4 +1,4 @@
-package com.rtve;
+package com.rtve.common;
 
 /**
  * Created by Matt on 10/10/2015.

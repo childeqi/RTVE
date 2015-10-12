@@ -1,4 +1,4 @@
-package com.rtve;
+package com.rtve.ui;
 
 import android.content.Context;
 import android.view.Gravity;
@@ -9,69 +9,51 @@ import android.widget.GridView;
 import android.widget.RadioGroup;
 import android.widget.ToggleButton;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.rtve.common.CameraConfigList;
 
 /**
  * Created by Matt on 10/4/2015.
  */
-public class ToggleButtonAdapter
+public class CameraListAdapter
         extends BaseAdapter
         implements View.OnClickListener,
-                   RadioGroup.OnCheckedChangeListener
+                   RadioGroup.OnCheckedChangeListener,
+                   CameraConfigList.CameraListChangeListener
 {
-   private final RadioGroup   rgp;
-   private final List<Camera> cameras;
-   private       Context      mContext;
+   private final RadioGroup       rgp;
+   private final CameraConfigList configList;
+   private       Context          mContext;
 
-   public ToggleButtonAdapter(Context c)
-   {
-      this(c, new ArrayList<Camera>());
-   }
-
-   public ToggleButtonAdapter(Context c, List<Camera> cameras)
+   public CameraListAdapter(Context c, CameraConfigList configList)
    {
       mContext = c;
       rgp = new RadioGroup(c);
       rgp.setOnCheckedChangeListener(this);
-      this.cameras = cameras;
+      this.configList = configList;
+      configList.addChangeListener(this);
    }
 
-
-   public void addCamera(Camera c)
+   public CameraConfigList getCameraConfigList()
    {
-      cameras.add(c);
-      this.notifyDataSetChanged();
-   }
-
-   public void removeCamera(Camera c)
-   {
-      cameras.remove(c);
-      this.notifyDataSetChanged();
-   }
-
-   public void clearCameras()
-   {
-      cameras.clear();
-      this.notifyDataSetChanged();
+      return configList;
    }
 
    @Override
    public int getCount()
    {
-      return cameras.size();
+      return configList.size();
    }
 
    @Override
    public Object getItem(int position)
    {
-      return cameras.get(position);
+      return configList.get(position);
    }
 
    @Override
    public long getItemId(int position)
    {
-      return cameras.get(position).getNumber();
+      return configList.get(position).getNumber();
    }
 
    @Override
@@ -92,7 +74,6 @@ public class ToggleButtonAdapter
          button.setGravity(Gravity.CENTER);
          button.setAllCaps(false);
          button.setOnClickListener(this);
-         button.setId(cameras.get(position).getNumber());
          rgp.addView(button);
       }
       else
@@ -100,7 +81,8 @@ public class ToggleButtonAdapter
          button = (ToggleButton) convertView;
       }
 
-      String text = cameras.get(position).toString();
+      String text = configList.get(position).toString();
+      button.setId(configList.get(position).getNumber());
       button.setText(text);
       button.setTextOn(text);
       button.setTextOff(text);
@@ -112,7 +94,6 @@ public class ToggleButtonAdapter
    {
       rgp.clearCheck();
       rgp.check(v.getId());
-//      ((ToggleButton) v).setChecked();
    }
 
    @Override
@@ -123,5 +104,11 @@ public class ToggleButtonAdapter
          final ToggleButton view = (ToggleButton) radioGroup.getChildAt(j);
          view.setChecked(view.getId() == i);
       }
+   }
+
+   @Override
+   public void cameraListChanged(CameraConfigList list)
+   {
+      this.notifyDataSetChanged();
    }
 }
