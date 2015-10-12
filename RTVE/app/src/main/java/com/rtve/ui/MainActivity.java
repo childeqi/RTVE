@@ -107,12 +107,14 @@ public class MainActivity
    {
       List<TimeSlot> timeList = camTimeRecorder.stopTiming();
 
+      /* This proves that the timing works, in case no core is available at the end of this sprint.
       System.out.println("******************* TIMES **************************");
       for (TimeSlot slot : timeList)
       {
          System.out.println(slot.toString());
       }
       System.out.println("****************************************************");
+      */
 
       // *************************** CALL CORE HERE ***********************************
       // core.save(timeList);
