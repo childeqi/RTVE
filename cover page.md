@@ -1,14 +1,14 @@
-##CS 1530 - SPRINT 1 DELIVERABLE
+##CS 1530 - SPRINT 2 DELIVERABLE
 ###Real Time Video Editor Group 2
 
 ######Software Developer:
-#####Domonic Milesi
-#####Matt Schnur
+#####Domonic Milesi (dom-o)
+#####Matt Schnur (mschnur)
 ######Quality Assurance Manager:
-#####Arjun Mukherjee
+#####Arjun Mukherjee (amukher14)
 ######Project Manager:
-#####Mengqi Wu
+#####Mengqi Wu (childeqi)
 
-29 September 2015
+13 October 2015
 
 
