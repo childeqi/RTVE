@@ -5,31 +5,31 @@ package com.rtve.common;
  */
 public class CameraTime
 {
-   private final long time;
+   private final long millis;
 
    public CameraTime()
    {
-      this.time= System.currentTimeMillis();
+      this.millis = System.currentTimeMillis();
    }
 
    private CameraTime(long millis)
    {
-      this.time = millis;
+      this.millis = millis;
    }
 
    public CameraTime minus(CameraTime before)
    {
-      return new CameraTime(time - before.getTime());
+      return new CameraTime(millis - before.getMillis());
    }
 
-   private long getTime()
+   public long getMillis()
    {
-      return time;
+      return millis;
    }
 
    @Override
    public boolean equals(Object o)
    {
-      return (o != null && o instanceof CameraTime && ((CameraTime) o).getTime() == time);
+      return (o != null && o instanceof CameraTime && ((CameraTime) o).getMillis() == millis);
    }
 }

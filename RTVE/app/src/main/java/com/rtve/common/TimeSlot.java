@@ -14,10 +14,11 @@ public class TimeSlot
       this.start = startTime;
    }
 
-   public void stopNow()
+   public TimeSlot stopAt(CameraTime endTime)
    {
-      this.end = new CameraTime();
+      this.end = endTime;
       this.duration = end.minus(start);
+      return this;
    }
 
    public CameraTime getStartTime()
@@ -33,5 +34,16 @@ public class TimeSlot
    public CameraTime getDuration()
    {
       return duration;
+   }
+
+   @Override
+   public String toString()
+   {
+      StringBuilder sb = new StringBuilder(cam.getName()).append(": ");
+      sb.append("start[").append(start.getMillis()).append(']');
+      sb.append(" to ");
+      sb.append("end[").append(end.getMillis()).append(']');
+      sb.append(" - duration[").append(duration.getMillis()).append(']');
+      return sb.toString();
    }
 }

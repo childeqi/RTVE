@@ -9,7 +9,9 @@ import android.widget.GridView;
 import android.widget.RadioGroup;
 import android.widget.ToggleButton;
 
+import com.rtve.common.CameraConfig;
 import com.rtve.common.CameraConfigList;
+import com.rtve.common.CameraTimeRecorder;
 
 /**
  * Created by Matt on 10/4/2015.
@@ -20,17 +22,27 @@ public class CameraListAdapter
                    RadioGroup.OnCheckedChangeListener,
                    CameraConfigList.CameraListChangeListener
 {
-   private final RadioGroup       rgp;
-   private final CameraConfigList configList;
-   private       Context          mContext;
+   private final RadioGroup         rgp;
+   private final CameraConfigList   configList;
+   private       CameraTimeRecorder recorder;
+   private       Context            mContext;
 
-   public CameraListAdapter(Context c, CameraConfigList configList)
+   public CameraListAdapter(Context c,
+                            CameraConfigList configList,
+                            CameraTimeRecorder recorder)
    {
       mContext = c;
       rgp = new RadioGroup(c);
       rgp.setOnCheckedChangeListener(this);
       this.configList = configList;
       configList.addChangeListener(this);
+      this.recorder = recorder;
+   }
+
+   public void resetTiming(CameraTimeRecorder newRecorder)
+   {
+      rgp.clearCheck();
+      this.recorder = newRecorder;
    }
 
    public CameraConfigList getCameraConfigList()
@@ -94,6 +106,7 @@ public class CameraListAdapter
    {
       rgp.clearCheck();
       rgp.check(v.getId());
+      recorder.cameraSelected(getCameraWithId(v.getId()));
    }
 
    @Override
@@ -110,5 +123,17 @@ public class CameraListAdapter
    public void cameraListChanged(CameraConfigList list)
    {
       this.notifyDataSetChanged();
+   }
+
+   private CameraConfig getCameraWithId(int id)
+   {
+      for (CameraConfig config : configList.getBackingList())
+      {
+         if (config.getNumber() == id)
+         {
+            return config;
+         }
+      }
+      return null;
    }
 }
