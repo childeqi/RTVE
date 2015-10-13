@@ -3,11 +3,14 @@
 #####Team communication:
 From the experience we got from last Sprint, we think online group chat is the most convenient way to communicate. We had two face-to-face meetings at the beginning. In the first one, the project manager had a talk with everyone individually to make sure everyone knew what to do. After several days, we met together again and discussed about if we need any changes in our user stories or just keep on going based on the process of our developers. After those two meeting, we do all the communication through online group chat because we already have the generally legible direction we need.
 
+
 #####Challenges of coding:
 Actually, our developers don’t have experience with Android development. So it does take time. It is always the first step that is troublesome. So is learning a new programming language. How to add an icon? How to load a new picture? How to save the data? …… There were plenty of things they need to learn how to handle with. 
 
+
 #####Solutions:
 Although we really need time to learning how to deal with Android development part, our logic and structure are good. With the correct logic and structure, and the growing understanding of Android GUI, we realized that some of our user stories needed to be tuned. Some of the original user stories are kind of vague and big. So, some of them should be split into smaller and more elementary steps.
+
 
 #####User Stories Changing:
 ######New user stories:
