@@ -1,5 +1,5 @@
 ##Description of Chosen User Stories:
-###(Details of Why Those User Stories are Chosen)
+####(Details of Why Those User Stories are Chosen)
 
 At the time we were working with the Android GUI, we realized that the user stories are not just the requirements or functions – they are also the basic steps and parts of the structures that makes up the GUI. And the most frequent word we can find in our 10 user stories is: camera. Thus, the function of adding cameras (User Story 3) became the first name on our wanted list.
 If we can make the adding-cameras function work, are there any other user stories that can be done while implemening that function? Then we set our eyes on user story 5 and 10. User story 5 requires us to add and save the information of the cameras and user story 10 asks for the properties. Obviously, these two user stories have very tight relation with the user story 3. Which means that they can be done easier than other when we have working user story 3 as the base. Thus, they were chosen.
