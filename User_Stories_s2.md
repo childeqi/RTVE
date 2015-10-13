@@ -1,5 +1,5 @@
-User Stories
-(Sprint 2)
+##User Stories
+#####(Sprint 2)
 
 1.	As a cameraman, I want to be able to save my configurations.
 2.	As a cameraman, I want to be able to load my configurations.
@@ -10,5 +10,6 @@ User Stories
 7.	As a cameraman, I want to be able to add a stage with a stage icon.
 8.	As a cameraman, I want the stage icon can be moved so that the stage and the cameras correspond with the real-life recording environment.
 9.	As a cameraman, I want to be able to somehow select a camera and have the time of selection recorded so that I can later use this time information when editing the video.
-10.	As a cameraman, I want to be able to set each camera as either wide or narrow lens.
-11.	As a cameraman, I want to be able have the area in sight of the camera reflect its setting so that I can easily identify when a camera should have a subject in view. 
+10.	As a video editor, I want the app to output XML data about the times that each camera should be playing so that I can then later use these times when I am compiling the video.
+11.	As a cameraman, I want to be able to set each camera as either wide or narrow lens.
+12.	As a cameraman, I want to be able have the area in sight of the camera reflect its setting so that I can easily identify when a camera should have a subject in view. 
