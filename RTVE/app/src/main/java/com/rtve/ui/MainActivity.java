@@ -12,6 +12,8 @@ import com.rtve.common.CameraConfig;
 import com.rtve.common.CameraConfigList;
 import com.rtve.common.CameraTimeRecorder;
 import com.rtve.common.TimeSlot;
+import com.rtve.core.CoreInterface;
+import com.rtve.core.XMLExporter;
 
 import java.util.List;
 
@@ -106,6 +108,7 @@ public class MainActivity
    public void stopPressed()
    {
       List<TimeSlot> timeList = camTimeRecorder.stopTiming();
+       CoreInterface core = new XMLExporter();
 
       /* This proves that the timing works, in case no core is available at the end of this sprint.
       System.out.println("******************* TIMES **************************");
@@ -117,7 +120,7 @@ public class MainActivity
       */
 
       // *************************** CALL CORE HERE ***********************************
-      // core.save(timeList);
+      core.save(timeList);
       // ******************************************************************************
 
       camTimeRecorder = new CameraTimeRecorder(this);
