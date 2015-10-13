@@ -1,4 +1,4 @@
-##Description of Chosen User Stories:
+##Description of Chosen User Stories
 ######(Details of Why Those User Stories are Chosen)
 
 At the time we were working with the Android GUI, we realized that the user stories are not just the requirements or functions – they are also the basic steps and parts of the structures that makes up the GUI. And the most frequent word we can find in our 10 user stories is: camera. Thus, the function of adding cameras (User Story 3) became the first name on our wanted list.
