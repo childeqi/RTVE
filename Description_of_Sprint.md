@@ -3,7 +3,7 @@
 #####
 #####
 #####Team communication:
-From the experience we got from last Sprint, we think online group chat is the most convenient way to communicate. We had two face-to-face meetings at the beginning. In the first one, the project manager had a talk with everyone individually to make sure everyone knew what to do. After several days, we met together again and discussed about if we need any changes in our user stories or just keep on going based on the process of our developers. After those two meeting, we do all the communication through online group chat because we already have the generally legible direction we need.
+From the experience we got from last Sprint, we think online group chat is the most convenient way to communicate. We had two face-to-face meetings at the beginning. In the first one, the project manager had a talk with everyone individually to make sure everyone knew what to do. After several days, we met together again and talked about whether we needed any changes in our user stories or just keep on going based on the process of our developers. After those two meeting, we did all the communication through online group chat because we already have the generally legible direction we need.
 
 #####
 #####
@@ -13,7 +13,7 @@ Actually, our developers don’t have experience with Android development. So it
 #####
 #####
 #####Solutions:
-Although we really need time to learning how to deal with Android development part, our logic and structure are good. With the correct logic and structure, and the growing understanding of Android GUI, we realized that some of our user stories needed to be tuned. Some of the original user stories are kind of vague and big. So, some of them should be split into smaller and more elementary steps.
+Although we really need time to learn how to deal with Android development part, our logic and structure are good. With the correct logic and structure, and the growing understanding of Android GUI, we realized that some of our user stories needed to be tuned. Some of the original user stories are kind of vague and big. So, some of them should be split into smaller and more elementary steps.
 
 #####
 #####
@@ -35,4 +35,4 @@ Although we really need time to learning how to deal with Android development pa
 #####
 #####
 #####Others:
-An interesting fact is: the new ordered user stories are very different from the old ones that we got before we were really dealing with the challenges of the Android GUI. The more we learn about the Android GUI, the better we understand the user stories. When we are working with the GUI, we are actually performing as a developer and a user at the same time. At the time we are trying to put the ideal functions into reality, we are realizing that that every single function actually have more steps than we thought. The changes of our user stories surprised us. At the same time, however, it’s the prove of our deliberation of the application.
+An interesting fact is: the new ordered user stories are very different from the old ones that we got before we were really dealing with the challenges of the Android GUI. The more we learn about the Android GUI, the better we understand the user stories. When we are working with the GUI, we are actually performing as a developer and a user at the same time. At the time we are trying to put the ideal functions into reality, we are realizing that that every single function actually has more steps than we thought. The changes of our user stories surprised us. At the same time, however, it’s the proof of our deliberation of the application.
