@@ -11,16 +11,18 @@ Although we really need time to learning how to deal with Android development pa
 
 #####User Stories Changing:
 ######New user stories:
-    1.	As a cameraman, I want to be able to save my configurations.
-    2.	As a cameraman, I want to be able to load my configurations.
-    3.	As a cameraman, I want to be able to add multiple cameras with actual camera shaped icons, which make them easy to be identified.
-    4.	As a cameraman, I want to assign each camera a name to be displayed with the camera so that I can identify each camera on screen.
-    5.	As a cameraman, I want my camera icons can be moved so that I can place them anywhere I want.
-    6.	As a cameraman, I want to be able to add a stage with a stage icon.
-    7.	As a cameraman, I want the stage icon can be moved so that the stage and the cameras correspond with the real-life recording environment.
-    8.	As a cameraman, I want to be able to somehow select a camera and have the time of selection recorded so that I can later use this time information when editing the video.
-    9.	As a cameraman, I want to be able to set each camera as either wide or narrow lens.
-    10.	As a cameraman, I want to be able have the area in sight of the camera reflect its setting so that I can easily identify when a camera should have a subject in view. 
+        1.	As a cameraman, I want to be able to save my configurations.
+        2.	As a cameraman, I want to be able to load my configurations.
+        3.	As a cameraman, I want to be able to add multiple cameras.
+        4.	As a cameraman, I want each of my cameras is given an actual camera shaped icon, which make them easy to be identified.
+        5.	As a cameraman, I want to assign each camera a name to be displayed with the camera so that I can identify each camera on screen.
+        6.	As a cameraman, I want my camera icons can be moved so that I can place them anywhere I want.
+        7.	As a cameraman, I want to be able to add a stage with a stage icon.
+        8.	As a cameraman, I want the stage icon can be moved so that the stage and the cameras correspond with the real-life recording environment.
+        9.	As a cameraman, I want to be able to somehow select a camera and have the time of selection recorded so that I can later use this time information when editing the video.
+        10.	As a cameraman, I want to be able to set each camera as either wide or narrow lens.
+        11.	As a cameraman, I want to be able have the area in sight of the camera reflect its setting so that I can easily identify when a camera should have a subject in view. 
+
 
 #####Others:
 An interesting fact is: the new ordered user stories are very different from the old ones that we got before we were really dealing with the challenges of the Android GUI. The more we learn about the Android GUI, the better we understand the user stories. When we are working with the GUI, we are actually performing as a developer and a user at the same time. At the time we are trying to put the ideal functions into reality, we are realizing that that every single function actually have more steps than we thought. The changes of our user stories surprised us. At the same time, however, it’s the prove of our deliberation of the application.
