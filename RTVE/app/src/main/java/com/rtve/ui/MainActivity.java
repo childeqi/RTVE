@@ -110,7 +110,7 @@ public class MainActivity
       List<TimeSlot> timeList = camTimeRecorder.stopTiming();
        CoreInterface core = new XMLExporter();
 
-      /* This proves that the timing works, in case no core is available at the end of this sprint.
+      /* This proves that the timing works, and can be used for debugging
       System.out.println("******************* TIMES **************************");
       for (TimeSlot slot : timeList)
       {
@@ -119,9 +119,8 @@ public class MainActivity
       System.out.println("****************************************************");
       */
 
-      // *************************** CALL CORE HERE ***********************************
       core.save(timeList);
-      // ******************************************************************************
+
 
       camTimeRecorder = new CameraTimeRecorder(this);
       cameraListAdapter.resetTiming(camTimeRecorder);
