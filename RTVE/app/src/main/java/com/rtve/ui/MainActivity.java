@@ -28,6 +28,7 @@ public class MainActivity
    private CameraTimeRecorder camTimeRecorder;
    private boolean stopMenuItemEnabled   = false;
    private boolean addCamMenuItemEnabled = true;
+   private boolean saveMenuItemEnabled = false;
 
    @Override
    public boolean onCreateOptionsMenu(Menu menu)
@@ -53,6 +54,12 @@ public class MainActivity
       // make the add camera icon on the action bar look enabled/disabled
       add.getIcon().setAlpha(addCamMenuItemEnabled ? 255 : 64);
 
+      // functionally enable/disable the save camera action bar item
+      MenuItem save = menu.findItem(R.id.action_save);
+      save.setEnabled(saveMenuItemEnabled);
+      // make the add camera icon on the action bar look enabled/disabled
+      save.getIcon().setAlpha(saveMenuItemEnabled ? 255 : 64);
+
       return true;
    }
 
@@ -71,6 +78,11 @@ public class MainActivity
          case R.id.action_stop:
             stopPressed();
             return true;
+
+         case R.id.action_save:
+            saveConfig();
+            return true;
+
 
          // this is where how the settings menu will be opened, when implemented
 //         case R.id.action_settings:
@@ -126,7 +138,10 @@ public class MainActivity
       cameraListAdapter.resetTiming(camTimeRecorder);
       setAddCamMenuItemEnabled(true, false);
       setStopMenuItemEnabled(false, true);
+   }
 
+   public void saveConfig()
+   {
 
    }
 

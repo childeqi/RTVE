@@ -1,12 +1,13 @@
 <resources>
    <string name="app_name">RTVE</string>
 
-   <string name="hello_world">Hello world!</string>
-
+   <!-- action bar -->
    <string name="action_add_camera">Add Camera</string>
    <string name="action_stop">Stop</string>
-   <!--<string name="action_settings">Settings</string>-->
+   <string name="action_save">Add Camera</string>
+   <string name="action_settings">Settings</string>
 
+   <!-- add camera dialog -->
    <string name="dialog_add_camera_header">Add Camera</string>
    <string name="dialog_add_camera_camera_name">Camera Name</string>
    <string name="dialog_add_camera_lens_type">Lens Type:</string>
@@ -16,4 +17,14 @@
    <string name="dialog_add_camera_cancel">Cancel</string>
    <string name="dialog_add_camera_error_invalid">Cannot add camera: Name invalid!</string>
    <string name="dialog_add_camera_cancel_not_unique">Cannot add camera: Name already used!</string>
+
+   <!-- Landing screen -->
+   <string name="title_activity_landing_screen">Landing Screen</string>
+   <string name="landing_load_config">Load Camera Configuration</string>
+   <string name="landing_title">Real Time Video Editor</string>
+   <string name="landing_new_config">New Camera Configuration</string>
+   <string name="landing_image_description">3 Cameras</string>
+
+
+
 </resources>
