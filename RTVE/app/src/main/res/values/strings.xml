@@ -24,7 +24,8 @@
    <string name="landing_title">Real Time Video Editor</string>
    <string name="landing_new_config">New Camera Configuration</string>
    <string name="landing_image_description">3 Cameras</string>
-
+   <string name="save_config_name_prompt_hint">Configuration Name</string>
+   <string name="save_config_name_prompt_text">Enter Configuration Name:</string>
 
 
 </resources>

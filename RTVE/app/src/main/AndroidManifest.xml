@@ -10,7 +10,7 @@
       android:theme="@style/DefaultTheme">
       <activity
          android:name=".ui.LandingScreenActivity"
-         android:label="@string/title_activity_landing_screen"
+         android:label="@string/app_name"
          android:theme="@style/DefaultThemeNoActionBar">
          <intent-filter>
             <action android:name="android.intent.action.MAIN"/>

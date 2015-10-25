@@ -12,13 +12,18 @@ public class WideLensCameraConfig extends CameraConfig
       super(name);
    }
 
+   public WideLensCameraConfig(String name, int number)
+   {
+      super(name, number);
+   }
+
    protected WideLensCameraConfig(Parcel in)
    {
       super(in);
    }
 
    @Override
-   protected LensType getLensType()
+   public LensType getLensType()
    {
       return LensType.WIDE;
    }

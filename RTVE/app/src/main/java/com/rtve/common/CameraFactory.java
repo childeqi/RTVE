@@ -19,4 +19,19 @@ public class CameraFactory
             throw new IllegalArgumentException("Bad value given for LensType");
       }
    }
+
+   public static CameraConfig loadCamera(int number, String name, LensType lens)
+   {
+      switch (lens)
+      {
+         case NARROW:
+            return new NarrowLensCameraConfig(name, number);
+
+         case WIDE:
+            return new WideLensCameraConfig(name, number);
+
+         default:
+            throw new IllegalArgumentException("Bad value given for LensType");
+      }
+   }
 }

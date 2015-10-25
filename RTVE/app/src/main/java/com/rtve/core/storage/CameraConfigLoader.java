@@ -4,6 +4,9 @@ import android.content.Context;
 
 import com.rtve.common.CameraConfigList;
 
+import org.simpleframework.xml.Serializer;
+import org.simpleframework.xml.core.Persister;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -94,8 +97,19 @@ public class CameraConfigLoader
       return parseConfigListFromFile(configFile);
    }
 
-   private static CameraConfigList parseConfigListFromFile(java.io.File configFile)
+   private static CameraConfigList parseConfigListFromFile(java.io.File inputFile)
    {
-      return new CameraConfigList();
+      Serializer serializer = new Persister();
+
+      try
+      {
+         Configuration config = serializer.read(Configuration.class, inputFile);
+         return XmlConfigListFactory.getConfigListFromConfiguration(config);
+      }
+      catch(Exception e)
+      {
+         e.printStackTrace();
+         return null;
+      }
    }
 }

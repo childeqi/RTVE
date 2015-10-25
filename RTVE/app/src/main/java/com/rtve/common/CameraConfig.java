@@ -51,7 +51,18 @@ public abstract class CameraConfig implements Parcelable
       this.name = name;
    }
 
-   protected abstract LensType getLensType();
+   protected CameraConfig(String name, int number)
+   {
+      this.number = number;
+      this.name = name;
+      // ensure that a camera number never repeats
+      if (number >= nextNumber)
+      {
+         nextNumber = number + 1;
+      }
+   }
+
+   public abstract LensType getLensType();
 
    public int describeContents()
    {
