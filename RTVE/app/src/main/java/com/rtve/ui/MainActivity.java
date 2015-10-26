@@ -121,6 +121,7 @@ public class MainActivity
 
       // *************************** CALL CORE HERE ***********************************
       core.save(timeList);
+      core.send(this);
       // ******************************************************************************
 
       camTimeRecorder = new CameraTimeRecorder(this);

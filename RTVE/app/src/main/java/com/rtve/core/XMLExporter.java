@@ -1,5 +1,11 @@
 package com.rtve.core;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Environment;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+
 import com.rtve.common.TimeSlot;
 
 import org.simpleframework.xml.Serializer;
@@ -9,11 +15,15 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * Created by mdomonic on 10/8/2015.
  */
 public class XMLExporter implements CoreInterface
 {
+    public static final String LOG_TAG = "XMLExporter";
+    private String outputFileName = "output.xml";
+
     public void save(List<com.rtve.common.TimeSlot> timeSlots)
     {
         List<Clip> clips = new ArrayList<Clip>(timeSlots.size());
@@ -53,21 +63,71 @@ public class XMLExporter implements CoreInterface
         xmeml xmeml = new xmeml(project, 4);
 
         Serializer serializer = new Persister();
-        File outputXML = new File("output.xml");
+        if(externalStorageAvailable())
+        {
+            File externalStorageDocs = getExternalStorageDir();
+            //String[] existingDocs = externalStorageDocs.list();
 
-        try
-        {
-            serializer.write(xmeml, outputXML);
+            /*for(int j = 2; Arrays.asList(existingDocs).contains(fileName); j++)
+            {
+                if(j == Integer.MAX_VALUE)
+                {
+                    Log.e(LOG_TAG, "Cannot resolve filename for output.");
+                }
+                else
+                {
+                    fileName = "output_" + j + ".xml";
+                }
+            }*/
+
+            File outputXML = new File(externalStorageDocs, outputFileName);
+            try
+            {
+                serializer.write(xmeml, outputXML);
+            }
+            catch(Exception e)
+            {
+                Log.e(LOG_TAG, "Error writing XML file", e);
+            }
         }
-        catch(Exception e)
+        else
         {
-            System.out.println(e);
+            Log.e(LOG_TAG, "External storage not available.");
         }
     }
 
-    public void send()
+    public void send(AppCompatActivity activity)
     {
-        return;
+        File xmlToSend = new File(getExternalStorageDir(), outputFileName);
+        if(xmlToSend.exists() && xmlToSend.isFile())
+        {
+            Intent emailIntent = new Intent(Intent.ACTION_SEND);
+            emailIntent.setData(Uri.parse("mailto:"));
+            emailIntent.setType("text/plain");
+            emailIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(getExternalStorageDir(), outputFileName)));
+            activity.startActivity(Intent.createChooser(emailIntent, "Send email with:"));
+        }
+        else
+        {
+            Log.e(LOG_TAG, "File to send doesn't exist.");
+        }
+    }
+
+    private boolean externalStorageAvailable()
+    {
+        return Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState());
+    }
+
+    //This creates a new directory for the xml output files.
+    private File getExternalStorageDir()
+    {
+        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), "Exported Premiere XML");
+
+        if(!(file.mkdirs() || file.isDirectory()))
+        {
+            Log.e(LOG_TAG, "Directory not created.");
+        }
+        return file;
     }
 
     //The value of this method will be slightly off until I understand better how to account for ntsc.

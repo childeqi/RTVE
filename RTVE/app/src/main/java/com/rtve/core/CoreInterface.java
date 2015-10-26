@@ -1,5 +1,7 @@
 package com.rtve.core;
 
+import android.support.v7.app.AppCompatActivity;
+
 import com.rtve.common.TimeSlot;
 
 import java.util.List;
@@ -11,5 +13,5 @@ public interface CoreInterface
 {
    void save(List<TimeSlot> timingList);
 
-   void send();
+   void send(AppCompatActivity activity);
 }
