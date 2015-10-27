@@ -1,5 +1,6 @@
 ##List of Completed User Stories:
-####(https://github.com/childeqi/RTVE)
+####(https://github.com/childeqi/RTVE) (https://github.com/childeqi/RTVE/tree/landing-screen)
+
 
 ######(1) As a cameraman, I want to be able to save my configurations. 
 
