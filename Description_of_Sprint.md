@@ -35,7 +35,7 @@ Also, the communication between the two developers helps a lot; they were sharin
 			Premiere so that I never need to look at raw XML.
 		9. 	As a video editor, I want the XML file that is output to be easily transferable from the 
 			phone/tablet to my computer so that I can access it easily when it is time to use it.
-		10. 	As a cameraman, I want to be able to add notes to each camera while filming, so I can use 			this information later when editing the video.
+		10.	As a cameraman, I want to be able to add notes to each camera while filming, so I can use 			this information later when editing the video.
 		11.	As a cameraman, I want to be able have the area in sight of the camera reflect its 
 			setting so that I can easily identify when a camera should have a subject in view.
 
