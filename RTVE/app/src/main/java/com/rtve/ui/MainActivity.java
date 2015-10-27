@@ -219,20 +219,33 @@ public class MainActivity
                               "Invalid Configuration Name",
                               Toast.LENGTH_SHORT).show();
 
-               // if we didn't save, don't do anything (so dialog doesn't close)
+               // since we didn't save, don't do anything (so dialog doesn't close)
             }
             else
             {
-               boolean saved = CameraConfigSaver.save(MainActivity.this,
-                                                      cameraConfigList,
-                                                      input.trim());
-               alertDialog.cancel();
-               String toastText = ((saved)
-                                   ? ("Configuration Saved")
-                                   : ("Failed to save configuration"));
-               Toast.makeText(MainActivity.this,
-                              toastText,
-                              Toast.LENGTH_SHORT).show();
+               String toastText = null;
+               try
+               {
+                  CameraConfigSaver.save(MainActivity.this,
+                                         cameraConfigList,
+                                         input.trim());
+                  toastText = "Configuration Saved";
+               }
+               catch (Exception e)
+               {
+                  Log.e(getClass().getSimpleName(), "Failed to save configuration", e);
+                  toastText = "Failed to save configuration";
+               }
+               finally
+               {
+                  alertDialog.cancel();
+                  if (toastText != null)
+                  {
+                     Toast.makeText(MainActivity.this,
+                                    toastText,
+                                    Toast.LENGTH_SHORT).show();
+                  }
+               }
 
             }
          }

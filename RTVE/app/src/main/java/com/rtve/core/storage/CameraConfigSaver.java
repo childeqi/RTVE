@@ -23,7 +23,7 @@ public class CameraConfigSaver
       // a private constructor makes this class uninstantiable
    }
 
-   public static boolean save(Context c, CameraConfigList list, String configName)
+   public static void save(Context c, CameraConfigList list, String configName) throws Exception
    {
       if (c == null || list == null || configName == null)
       {
@@ -59,11 +59,11 @@ public class CameraConfigSaver
          }
       }
 
-      return writeConfigListToFile(configFile, isNewFile, list);
+      writeConfigListToFile(configFile, isNewFile, list);
    }
 
-   private static boolean writeConfigListToFile(java.io.File outputFile, boolean isNewFile,
-                                                CameraConfigList configList)
+   private static void writeConfigListToFile(java.io.File outputFile, boolean isNewFile,
+                                                CameraConfigList configList) throws Exception
    {
       Configuration config = XmlConfigListFactory.getConfigurationFromConfigList(configList);
 
@@ -72,11 +72,9 @@ public class CameraConfigSaver
       try
       {
          serializer.write(config, outputFile);
-         return true;
       }
       catch(Exception e)
       {
-         Log.e(CameraConfigSaver.class.getSimpleName(), "Failed to write XML", e);
          if (isNewFile)
          {
             if (outputFile.exists() && !outputFile.delete())
@@ -84,7 +82,7 @@ public class CameraConfigSaver
                Log.e(CameraConfigSaver.class.getSimpleName(), "Failed to delete new config file", e);
             }
          }
-         return false;
+         throw e;
       }
    }
 }

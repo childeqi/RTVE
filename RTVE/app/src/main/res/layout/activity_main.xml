@@ -12,5 +12,3 @@
    android:numColumns="1"
    android:stretchMode="columnWidth"
    android:verticalSpacing="20dp" />
-   <!--android:columnWidth="90dp"-->
-   <!--android:numColumns="auto_fit"-->

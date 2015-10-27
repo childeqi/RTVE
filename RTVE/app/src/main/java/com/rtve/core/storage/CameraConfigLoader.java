@@ -1,7 +1,6 @@
 package com.rtve.core.storage;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.rtve.common.CameraConfigList;
 
@@ -10,7 +9,6 @@ import org.simpleframework.xml.core.Persister;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 /**
  * Created by Matt on 10/24/2015.
@@ -89,7 +87,8 @@ public class CameraConfigLoader
       }
 
       java.io.File configFile = new java.io.File(c.getFilesDir(),
-                                                 CameraConfigSaver.CONFIG_STORAGE_PREFIX + configName);
+                                                 CameraConfigSaver.CONFIG_STORAGE_PREFIX +
+                                                         configName);
 
       if (!configFile.isFile() || !configFile.canRead())
       {
@@ -103,24 +102,7 @@ public class CameraConfigLoader
    {
       Serializer serializer = new Persister();
 
-      Scanner scanner = new Scanner(inputFile);
-      Log.w(CameraConfigLoader.class.getSimpleName(), "Starting file output:");
-      while (scanner.hasNextLine())
-      {
-         Log.d(CameraConfigLoader.class.getSimpleName(),scanner.nextLine());
-      }
-      Log.w(CameraConfigLoader.class.getSimpleName(), "File output completed");
-      scanner.close();
-
-//      try
-//      {
-         Configuration config = serializer.read(Configuration.class, inputFile);
-         return XmlConfigListFactory.getConfigListFromConfiguration(config);
-//      }
-//      catch(Exception e)
-//      {
-//         e.printStackTrace();
-//         return null;
-//      }
+      Configuration config = serializer.read(Configuration.class, inputFile);
+      return XmlConfigListFactory.getConfigListFromConfiguration(config);
    }
 }
