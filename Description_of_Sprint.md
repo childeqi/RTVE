@@ -3,36 +3,45 @@
 #####
 #####
 #####Team communication:
-From the experience we got from last Sprint, we think online group chat is the most convenient way to communicate. We had two face-to-face meetings at the beginning. In the first one, the project manager had a talk with everyone individually to make sure everyone knew what to do. After several days, we met together again and talked about whether we needed any changes in our user stories or just keep on going based on the process of our developers. After those two meeting, we did all the communication through online group chat because we already have the generally legible direction we need.
+As what we did for last sprint, we still use online group chat as the most frequent way to communicate. We also had face-to-face meeting once at the beginning of this sprint to discuss about the user stories and their orders, and make sure that everyone knows what they need to do. After we got our basic direction and legible goal, working separately is more convenient for us. Every time when we had some processes, we would talk about that in our group chat.
 
 #####
 #####
 #####Challenges of coding:
-Actually, our developers don’t have experience with Android development. So it does take time. It is always the first step that is troublesome. So is learning a new programming language. How to add an icon? How to load a new picture? How to save the data? …… There were plenty of things they need to learn how to handle with. 
+Our developers are still getting familiar with Android. So, during the process of developing, there were plenty of things waiting for them.
+One big problem we got is: when we were trying to make saving the configurations work, how to use the XML library became a challenge. We were also having some problem with the hardware acceleration for the Android emulator and running anything is slow.  
 
 #####
 #####
 #####Solutions:
-Although we really need time to learn how to deal with Android development part, our logic and structure are good. With the correct logic and structure, and the growing understanding of Android GUI, we realized that some of our user stories needed to be tuned. Some of the original user stories are kind of vague and big. So, some of them should be split into smaller and more elementary steps.
+Time is almighty. It takes time to get familiar with Android and its libraries. It takes time to figure out the way to solve the real-time problem. It takes time to make everything working without bugs. It takes time. 
+Also, the communication between the two developers helps a lot; they were sharing their experience and helping with each other.
 
 #####
 #####
 #####User Stories Changing:
 ######New user stories:
-        1.	As a cameraman, I want to be able to save my configurations.
-        2.	As a cameraman, I want to be able to load my configurations.
-        3.	As a cameraman, I want to be able to add multiple cameras.
-        4.	As a cameraman, I want each of my cameras is given an actual camera shaped icon, which make them easy to be identified.
-        5.	As a cameraman, I want to assign each camera a name to be displayed with the camera so that I can identify each camera on screen.
-        6.	As a cameraman, I want my camera icons can be moved so that I can place them anywhere I want.
-        7.	As a cameraman, I want to be able to add a stage with a stage icon.
-        8.	As a cameraman, I want the stage icon can be moved so that the stage and the cameras correspond with the real-life recording environment.
-        9.	As a cameraman, I want to be able to somehow select a camera and have the time of selection recorded so that I can later use this time information when editing the video.
-        10.	As a video editor, I want the app to output XML data about the times that each camera should be playing so that I can then later use these times when I am compiling the video.
-        11.	As a cameraman, I want to be able to set each camera as either wide or narrow lens.
-        12.	As a cameraman, I want to be able have the area in sight of the camera reflect its setting so that I can easily identify when a camera should have a subject in view. 
+		1.	As a cameraman, I want to be able to save my configurations.
+		2.	As a cameraman, I want to be able to load my configurations.
+		3.	As a cameraman, I want to be able choose to load a configuration or create a new one.
+		4.	As a cameraman, I want each of my cameras is given an actual camera shaped icon, 
+			which make them easy to be identified.
+		5.	As a cameraman, I want my camera icons can be moved so that I can place them anywhere 
+			I want.
+		6.	As a cameraman, I want to be able to add a stage with a stage icon.
+		7.	As a cameraman, I want the stage icon to be movable so that the stage and the cameras 
+			correspond with the real-life recording environment.
+		8. 	As a video editor, I want the XML that is output by the app to be loadable by Adobe 
+			Premiere so that I never need to look at raw XML.
+		9. 	As a video editor, I want the XML file that is output to be easily transferable from the 
+			phone/tablet to my computer so that I can access it easily when it is time to use it.
+		10.	As a cameraman, I want to be able to add notes to each camera while filming, so I can use
+			this information later when editing the video.
+		11.	As a cameraman, I want to be able have the area in sight of the camera reflect its 
+			setting so that I can easily identify when a camera should have a subject in view.
+
 
 #####
 #####
-#####Others:
-An interesting fact is: the new ordered user stories are very different from the old ones that we got before we were really dealing with the challenges of the Android GUI. The more we learn about the Android GUI, the better we understand the user stories. When we are working with the GUI, we are actually performing as a developer and a user at the same time. At the time we are trying to put the ideal functions into reality, we are realizing that that every single function actually has more steps than we thought. The changes of our user stories surprised us. At the same time, however, it’s the proof of our deliberation of the application.
+#####Interactions with customer:
+After we got our basic GUI done, we sent the link to the customer. The customer doesn’t really know how to use Github, so, we also sent him the screenshots, which are showing all the functions we have. Before we really showing him these, everything was above the clouds and seemed very nice for both of our sides. But now, both of us have a clearer picture about what the product should be. The customer changed some requirements and also added some. And we think that we may have a huge change about our user stories in next sprint.
