@@ -9,16 +9,18 @@ import org.simpleframework.xml.Attribute;
  */
 public class Camera
 {
-   @Attribute
-   private int number;
+   @Attribute(name = "number")
+   private final int number;
 
-   @Attribute
-   private String name;
+   @Attribute(name = "name")
+   private final String name;
 
-   @Attribute
-   private LensType lens;
+   @Attribute(name = "lens")
+   private final LensType lens;
 
-   public Camera(int number, String name, LensType lens)
+   public Camera(@Attribute(name = "number") int number,
+                 @Attribute(name = "name") String name,
+                 @Attribute(name = "lens") LensType lens)
    {
       this.number = number;
       this.name = name;

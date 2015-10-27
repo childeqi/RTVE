@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.rtve.R;
 
@@ -60,7 +59,8 @@ public class LandingScreenActivity extends AppCompatActivity
 
    public void loadConfig(View view)
    {
-      Toast.makeText(this, "Not yet implemented", Toast.LENGTH_SHORT).show();
+      Intent intent = new Intent(this, LoadConfigurationActivity.class);
+      startActivity(intent);
    }
 
 //   /**

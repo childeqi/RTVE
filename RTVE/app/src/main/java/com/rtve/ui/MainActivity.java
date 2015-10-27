@@ -3,9 +3,11 @@ package com.rtve.ui;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,6 +24,7 @@ import com.rtve.common.CameraTimeRecorder;
 import com.rtve.common.TimeSlot;
 import com.rtve.core.CoreInterface;
 import com.rtve.core.XMLExporter;
+import com.rtve.core.storage.CameraConfigLoader;
 import com.rtve.core.storage.CameraConfigSaver;
 
 import java.util.List;
@@ -220,13 +223,17 @@ public class MainActivity
             }
             else
             {
-               CameraConfigSaver.save(MainActivity.this,
-                                      cameraConfigList,
-                                      input.trim());
+               boolean saved = CameraConfigSaver.save(MainActivity.this,
+                                                      cameraConfigList,
+                                                      input.trim());
                alertDialog.cancel();
+               String toastText = ((saved)
+                                   ? ("Configuration Saved")
+                                   : ("Failed to save configuration"));
                Toast.makeText(MainActivity.this,
-                              "Configuration Saved",
+                              toastText,
                               Toast.LENGTH_SHORT).show();
+
             }
          }
       });
@@ -253,8 +260,27 @@ public class MainActivity
       super.onCreate(savedInstanceState);
       setContentView(R.layout.activity_main);
 
+      Intent intent     = getIntent();
+      String configName = intent.getStringExtra(LoadConfigurationActivity.SELECTED_CONFIG);
+
+      if (configName == null)
+      {
+         cameraConfigList = new CameraConfigList();
+      }
+      else
+      {
+         try
+         {
+            cameraConfigList = CameraConfigLoader.load(this, configName);
+         }
+         catch (Exception e)
+         {
+            Log.e(getClass().getSimpleName(), "Failed to load cameraConfigList", e);
+            cameraConfigList = new CameraConfigList();
+         }
+      }
+
       GridView gridview = (GridView) findViewById(R.id.gridview);
-      cameraConfigList = new CameraConfigList();
       cameraConfigList.addChangeListener(this);
       camTimeRecorder = new CameraTimeRecorder(this);
       cameraListAdapter = new CameraListAdapter(this, cameraConfigList, camTimeRecorder);

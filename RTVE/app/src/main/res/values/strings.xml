@@ -27,5 +27,8 @@
    <string name="save_config_name_prompt_hint">Configuration Name</string>
    <string name="save_config_name_prompt_text">Enter Configuration Name:</string>
 
+   <!-- Load Configuration screen -->
+   <string name="title_activity_load_configuration">Load Configuration</string>
+
 
 </resources>

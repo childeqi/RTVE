@@ -1,6 +1,7 @@
 package com.rtve.core.storage;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.rtve.common.CameraConfigList;
 
@@ -36,12 +37,18 @@ public class CameraConfigSaver
       java.io.File configFile = new java.io.File(c.getFilesDir(),
                                                  CameraConfigSaver.CONFIG_STORAGE_PREFIX + configName);
 
-      if (configFile.exists() && (!configFile.isFile() || !configFile.canWrite()))
+      boolean isNewFile;
+      if (configFile.exists())
       {
-         throw new IllegalArgumentException("Cannot save configuration to given filename");
+         isNewFile = false;
+         if ((!configFile.isFile() || !configFile.canWrite()))
+         {
+            throw new IllegalArgumentException("Cannot save configuration to given filename");
+         }
       }
       else
       {
+         isNewFile = true;
          try
          {
             configFile.createNewFile();
@@ -52,10 +59,11 @@ public class CameraConfigSaver
          }
       }
 
-      return writeConfigListToFile(configFile, list);
+      return writeConfigListToFile(configFile, isNewFile, list);
    }
 
-   private static boolean writeConfigListToFile(java.io.File outputFile, CameraConfigList configList)
+   private static boolean writeConfigListToFile(java.io.File outputFile, boolean isNewFile,
+                                                CameraConfigList configList)
    {
       Configuration config = XmlConfigListFactory.getConfigurationFromConfigList(configList);
 
@@ -68,7 +76,14 @@ public class CameraConfigSaver
       }
       catch(Exception e)
       {
-         e.printStackTrace();
+         Log.e(CameraConfigSaver.class.getSimpleName(), "Failed to write XML", e);
+         if (isNewFile)
+         {
+            if (outputFile.exists() && !outputFile.delete())
+            {
+               Log.e(CameraConfigSaver.class.getSimpleName(), "Failed to delete new config file", e);
+            }
+         }
          return false;
       }
    }

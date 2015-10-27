@@ -1,5 +1,7 @@
 package com.rtve.core;
 
+import android.util.Log;
+
 import com.rtve.common.TimeSlot;
 
 import org.simpleframework.xml.Serializer;
@@ -61,7 +63,7 @@ public class XMLExporter implements CoreInterface
         }
         catch(Exception e)
         {
-            System.out.println(e);
+            Log.e(getClass().getSimpleName(), "Failed to write XML", e);
         }
     }
 
