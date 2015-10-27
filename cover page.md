@@ -1,4 +1,4 @@
-##CS 1530 - SPRINT 3 DELIVERABLE
+##CS 1530 - SPRINT 2 DELIVERABLE
 ###Real Time Video Editor Group 2
 
 ######Software Developer:
@@ -11,7 +11,7 @@
 
 ###
 ######The date of due:
-#####27 October 2015
+#####13 October 2015
 
 
 
