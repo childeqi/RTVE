@@ -1,12 +1,9 @@
-##Description of Chosen User Stories:
+##Description of Chosen User Stories
 ######(Details of Why Those User Stories are Chosen)
 
-As we are getting more experiences with the application and Android programming, we can start paying more attention to the priorities of our user stories. So, this time, we are trying to work on the user stories with high priorities. 
+At the time we were working with the Android GUI, we realized that the user stories are not just the requirements or functions – they are also the basic steps and parts of the structures that makes up the GUI. And the most frequent word we can find in our 12 user stories is: camera. Thus, the function of adding cameras (User Story 3) became the first name on our wanted list.
 
-In the ordered user story list, we find out that the first three ones are relative – they are all about the configurations. We all agreed this could be a good place to start. First, users should be allowed to choose if they want to create a new configuration or load a configuration. Then, users will go to the interface of the configuration. After they are done want they want in that configuration, they can save it. 
+If we can make the adding-cameras function work, are there any other user stories that can be done while implemening that function? Then we set our eyes on user story 5 and 11. User story 5 requires us to add and save the information of the cameras and user story 11 asks for the properties. Obviously, these two user stories have very tight relation with the user story 3. Which means that they can be done easier than other when we have working user story 3 as the base. Thus, they were chosen.
 
-Also, before users can load a configuration, an existing configuration is the imperative, which means saving a configuration should be implementing first. As a result, obviously, “saving a configuration” became our No.1 mission.(User Story 1.) With “save” in our hands, what we need next is an interface to allow users to make choose. (User Story 2.) We was planning to implement “load”, but things didn’t work smoothly as we excepted.
+But, why did we choose user stories 9 and 10? It seems a better idea to choose 4 or 6 because they are also based on the user story 3. The reason is: practicality. When we met with our customer, he said that he wanted the application to be more practical than pretty. And at first, in the image of the application GUI he pictured for us, there weren't any movable camera icons – there were only camera buttons. Of course, beautiful movable icons will be more fancy. But, it’s not what we need in this period. What’s the practical function we need after “we have a camera/cameras”? User stories 9 and 10. Actually, user stories 9 and 10 were user stories 1 and 2 in the previous user story version, which means that they are top 2 practical functions the customer needs. That’s the reason we choose them.
 
-For the back-ground support part, as we already done User Story 8, which making the XML output to be loadable by Adobe Premiere, the next important step is making the XML output being easily transferable. (User Story 9.)
-
-“To make it useful first, then make it pretty. Making all the fundamental functions working and let it be as practical as we can.” That’s the main purpose of us.
