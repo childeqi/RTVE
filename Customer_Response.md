@@ -7,9 +7,9 @@ Although he has no idea about the easiness of actualization, here are the things
 
 	1. Change the word "narrow" to "Tight." Or the lens type could just be a text box.
 	2. I would love to be able to set certain cameras as having a 30min. time limit. 
-	Some of my cameras are DSLR and can only record for that long. 
-	Therefore I would want to be able to set them up as running for only 30 minutes, 
-	perhaps with a warning starting at 25 minutes.
+	   Some of my cameras are DSLR and can only record for that long. 
+	   Therefore I would want to be able to set them up as running for only 30 minutes, 
+	   perhaps with a warning starting at 25 minutes.
 	3. Here are some things I told the other group the other day.
 	     a) Cameras could be represented as boxes (i.e. viewfinders) if that would be easier. 
 	     b) Whatever icon represents the cameras could be outlined in white when stopped, 
