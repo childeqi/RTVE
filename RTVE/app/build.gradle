@@ -19,7 +19,19 @@ android {
     }
 }
 
+configurations {
+    compile.exclude module: 'stax'
+    compile.exclude module: 'stax-api'
+    compile.exclude module: 'xpp3'
+}
+
+repositories {
+    mavenCentral()
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:23.0.1'
+    // Remote binary dependency
+    compile 'org.simpleframework:simple-xml:2.7.1'
 }

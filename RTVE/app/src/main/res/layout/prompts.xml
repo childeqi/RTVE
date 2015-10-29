@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/save_config_name_prompt_layout"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:orientation="vertical"
+              android:padding="10dp" >
+
+   <TextView
+      android:id="@+id/save_config_name_prompt_text"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/save_config_name_prompt_text"
+      android:textAppearance="?android:attr/textAppearanceLarge" />
+
+   <EditText
+      android:id="@+id/save_config_name_edittext"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:inputType="text"
+      android:hint="@string/save_config_name_prompt_hint">
+
+      <requestFocus />
+
+   </EditText>
+
+</LinearLayout>

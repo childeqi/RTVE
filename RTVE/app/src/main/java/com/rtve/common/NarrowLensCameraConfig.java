@@ -12,13 +12,18 @@ public class NarrowLensCameraConfig extends CameraConfig
       super(name);
    }
 
+   public NarrowLensCameraConfig(String name, int number)
+   {
+      super(name, number);
+   }
+
    protected NarrowLensCameraConfig(Parcel in)
    {
       super(in);
    }
 
    @Override
-   protected LensType getLensType()
+   public LensType getLensType()
    {
       return LensType.NARROW;
    }
