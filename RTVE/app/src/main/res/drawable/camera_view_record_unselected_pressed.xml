@@ -12,7 +12,7 @@
    </item>
    <item>
       <shape xmlns:android="http://schemas.android.com/apk/res/android"
-             android:innerRadius="12.dp"
+             android:innerRadius="12.5dp"
              android:shape="ring"
              android:useLevel="false">
          <solid android:color="#565656"/>

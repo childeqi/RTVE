@@ -2,6 +2,7 @@ package com.rtve.ui;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.os.CountDownTimer;
 import android.util.AttributeSet;
 import android.widget.Button;
@@ -16,11 +17,11 @@ import com.rtve.common.CameraConfig;
  */
 public class CameraView extends RelativeLayout
 {
-   private       boolean      recording;
-   private       boolean      selected;
-   private       CameraConfig config;
+   private boolean           recording;
+   private boolean           selected;
+   private CameraConfig      config;
    private CountDownTextView cdText;
-   private Button recordButton;
+   private Button            recordButton;
 
 
    public CameraView(Context context)
@@ -44,7 +45,9 @@ public class CameraView extends RelativeLayout
    private void init(AttributeSet attrs)
    {
       Context c = getContext();
-      inflate(c, R.layout.camera_view, this);
+
+      this.setBackgroundColor(Color.TRANSPARENT);
+      this.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 
       if (isInEditMode())
       {
@@ -96,22 +99,28 @@ public class CameraView extends RelativeLayout
       }
    }
 
+   @Override
+   protected void onFinishInflate()
+   {
+      super.onFinishInflate();
+
+      // get references to subcomponents here
+   }
+
    public void setCameraConfig(CameraConfig config)
    {
       this.config = config;
    }
 
-   public void setSelected(boolean selected)
+   public boolean isRecording()
+   {
+      return this.recording;
+   }   public void setSelected(boolean selected)
    {
       if (this.selected != selected)
       {
          this.selected = selected;
       }
-   }
-
-   public boolean isSelected()
-   {
-      return this.selected;
    }
 
    public void setRecording(boolean recording)
@@ -120,18 +129,16 @@ public class CameraView extends RelativeLayout
       {
          this.recording = recording;
       }
+   }   public boolean isSelected()
+   {
+      return this.selected;
    }
 
-   public boolean isRecording()
+   private static class CountDownTextView extends TextView
    {
-      return this.recording;
-   }
-
-   private abstract static class CountDownTextView extends TextView
-   {
-      private static final long MILLIS_IN_SEC = 1000;
-      private static final long SECS_IN_MIN = 60;
-      private static final long MINS_IN_HOUR = 60;
+      private static final long MILLIS_IN_SEC              = 1000;
+      private static final long SECS_IN_MIN                = 60;
+      private static final long MINS_IN_HOUR               = 60;
       // 30 minutes, in milliseconds
       private static final long COUNTDOWN_START_TIME_MS    = 30 * SECS_IN_MIN * MILLIS_IN_SEC;
       // 50 millisecond ticks on countdown timer
@@ -144,17 +151,24 @@ public class CameraView extends RelativeLayout
 
       public CountDownTextView(Context context)
       {
-         this(context, null, 0);
+         super(context);
+         init();
       }
 
       public CountDownTextView(Context context, AttributeSet attrs)
       {
-         this(context, attrs, 0);
+         super(context, attrs);
+         init();
       }
 
       public CountDownTextView(Context context, AttributeSet attrs, int default_style)
       {
          super(context, attrs, default_style);
+         init();
+      }
+
+      private void init()
+      {
          millisRemaining = COUNTDOWN_START_TIME_MS;
          updateTextTime();
       }
@@ -225,7 +239,10 @@ public class CameraView extends RelativeLayout
       /**
        * Callback fired when the time is up.
        */
-      public abstract void onFinish();
+      public void onFinish()
+      {
+
+      }
 
       /**
        * Cancel the countdown.
@@ -274,5 +291,9 @@ public class CameraView extends RelativeLayout
          return isPaused;
       }
    }
+
+
+
+
 
 }
