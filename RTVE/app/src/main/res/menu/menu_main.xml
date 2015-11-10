@@ -2,7 +2,6 @@
       xmlns:app="http://schemas.android.com/apk/res-auto"
       xmlns:tools="http://schemas.android.com/tools"
       tools:context=".MainActivity">
-
    <item
       android:id="@+id/action_addCam"
       android:icon="@drawable/ic_action_add"
@@ -11,9 +10,15 @@
       app:showAsAction="ifRoom"/>
    <item
       android:id="@+id/action_stop"
-      android:icon="@drawable/ic_action_stop"
+      android:icon="@drawable/ic_action_playback_stop"
       android:orderInCategory="99"
       android:title="@string/action_stop"
+      app:showAsAction="ifRoom"/>
+   <item
+      android:id="@+id/action_save"
+      android:icon="@drawable/ic_action_save"
+      android:orderInCategory="99"
+      android:title="@string/action_save"
       app:showAsAction="ifRoom"/>
    <!--<item
       android:id="@+id/action_settings"

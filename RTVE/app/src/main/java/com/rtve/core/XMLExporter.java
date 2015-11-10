@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
+
 import android.util.Log;
 
 import com.rtve.common.TimeSlot;
@@ -86,6 +87,7 @@ public class XMLExporter implements CoreInterface
             emailIntent.setType("text/plain");
             emailIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(xmlToSend));
             activity.startActivity(Intent.createChooser(emailIntent, "Send email with:"));
+
         }
         else
         {
