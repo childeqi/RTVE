@@ -120,7 +120,7 @@ public class MainActivity
       */
 
       // *************************** CALL CORE HERE ***********************************
-      core.save(timeList);
+      core.save(timeList, this);
       core.send(this);
       // ******************************************************************************
 

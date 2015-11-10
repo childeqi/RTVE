@@ -1,5 +1,6 @@
 package com.rtve.core;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
@@ -12,6 +13,7 @@ import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,9 +24,9 @@ import java.util.List;
 public class XMLExporter implements CoreInterface
 {
     public static final String LOG_TAG = "XMLExporter";
-    private String outputFileName = "output.xml";
+    private String outputFileName = "RTVE_output.xml";
 
-    public void save(List<com.rtve.common.TimeSlot> timeSlots)
+    public void save(List<com.rtve.common.TimeSlot> timeSlots, Context activity)
     {
         List<Clip> clips = new ArrayList<Clip>(timeSlots.size());
         List<ClipItem> clipItems = new ArrayList<ClipItem>(timeSlots.size());
@@ -63,48 +65,26 @@ public class XMLExporter implements CoreInterface
         xmeml xmeml = new xmeml(project, 4);
 
         Serializer serializer = new Persister();
-        if(externalStorageAvailable())
+
+        try
         {
-            File externalStorageDocs = getExternalStorageDir();
-            //String[] existingDocs = externalStorageDocs.list();
-
-            /*for(int j = 2; Arrays.asList(existingDocs).contains(fileName); j++)
-            {
-                if(j == Integer.MAX_VALUE)
-                {
-                    Log.e(LOG_TAG, "Cannot resolve filename for output.");
-                }
-                else
-                {
-                    fileName = "output_" + j + ".xml";
-                }
-            }*/
-
-            File outputXML = new File(externalStorageDocs, outputFileName);
-            try
-            {
-                serializer.write(xmeml, outputXML);
-            }
-            catch(Exception e)
-            {
-                Log.e(LOG_TAG, "Error writing XML file", e);
-            }
+            FileOutputStream outputXML = activity.openFileOutput(outputFileName, Context.MODE_PRIVATE);
+            serializer.write(xmeml, outputXML);
         }
-        else
-        {
-            Log.e(LOG_TAG, "External storage not available.");
+        catch(Exception e) {
+            Log.e(LOG_TAG, "Error writing XML file", e);
         }
     }
 
-    public void send(AppCompatActivity activity)
+    public void send(Context activity)
     {
-        File xmlToSend = new File(getExternalStorageDir(), outputFileName);
+        File xmlToSend = activity.getFileStreamPath(outputFileName);
         if(xmlToSend.exists() && xmlToSend.isFile())
         {
             Intent emailIntent = new Intent(Intent.ACTION_SEND);
             emailIntent.setData(Uri.parse("mailto:"));
             emailIntent.setType("text/plain");
-            emailIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(getExternalStorageDir(), outputFileName)));
+            emailIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(xmlToSend));
             activity.startActivity(Intent.createChooser(emailIntent, "Send email with:"));
         }
         else
