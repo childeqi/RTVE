@@ -115,12 +115,6 @@ public class CameraView extends RelativeLayout
    public boolean isRecording()
    {
       return this.recording;
-   }   public void setSelected(boolean selected)
-   {
-      if (this.selected != selected)
-      {
-         this.selected = selected;
-      }
    }
 
    public void setRecording(boolean recording)
@@ -129,9 +123,15 @@ public class CameraView extends RelativeLayout
       {
          this.recording = recording;
       }
-   }   public boolean isSelected()
+   }
+
+
+   public void setSelected(boolean selected)
    {
-      return this.selected;
+      if (this.selected != selected)
+      {
+         this.selected = selected;
+      }
    }
 
    private static class CountDownTextView extends TextView
@@ -292,6 +292,10 @@ public class CameraView extends RelativeLayout
       }
    }
 
+   public boolean isSelected()
+   {
+      return this.selected;
+   }
 
 
 
