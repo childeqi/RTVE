@@ -1,12 +1,11 @@
 ##Description of Chosen User Stories:
 ######(Details of Why Those User Stories are Chosen)
 
-As we are getting more experiences with the application and Android programming, we can start paying more attention to the priorities of our user stories. So, this time, we are trying to work on the user stories with high priorities. 
+Description of Chosen User Stories:
+(Details of Why Those User Stories are Chosen)
 
-In the ordered user story list, we find out that the first three ones are relative – they are all about the configurations. We all agreed this could be a good place to start. First, users should be allowed to choose if they want to create a new configuration or load a configuration. Then, users will go to the interface of the configuration. After they are done want they want in that configuration, they can save it. 
+After the communication with the customer for last deliverable, we realize that a huge change of our interface need to be done. Our customer showed us a picture of the interface that he imaged, which was very different from what we already had. Also, after we show him the functions we already had, he gave us more details about what he actually wanted. So, the user stores changed a lot. During our meeting, we all agreed that the interface is the most important thing for us in this deliverable.
 
-Also, before users can load a configuration, an existing configuration is the imperative, which means saving a configuration should be implementing first. As a result, obviously, “saving a configuration” became our No.1 mission.(User Story 1.) With “save” in our hands, what we need next is an interface to allow users to make choose. (User Story 3.) If the users want to work on what they already have, they can load the configuration they saved before.
+For the new interface, we need a camera icon, which is described as our User Story 1. It’s not just a simple icon; it the base of other functions. The colors of the camera icon will show the different states of cameras. Although we haven’t really done other functions, we can’t do anything without the camera icon. That is the reason we choose this user story.
 
-For the back-ground support part, as we already done User Story 8, which making the XML output to be loadable by Adobe Premiere, the next important step is making the XML output being easily transferable. (User Story 9.)
-
-“To make it useful first, then make it pretty. Making all the fundamental functions working and let it be as practical as we can.” That’s the main purpose of us.
+Other user story we choose id user story 8. As we already have the User Story 7, it will make more sense to do User Story 8 earlier than other background user stories.
