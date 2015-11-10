@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -298,6 +299,13 @@ public class MainActivity
       camTimeRecorder = new CameraTimeRecorder(this);
       cameraListAdapter = new CameraListAdapter(this, cameraConfigList, camTimeRecorder);
       gridview.setAdapter(cameraListAdapter);
+   }
+
+   @Override
+   public void onConfigurationChanged(Configuration newConfig)
+   {
+      // ignore orientation change
+      super.onConfigurationChanged(newConfig);
    }
 
    @Override

@@ -9,8 +9,8 @@ public class CameraFactory
    {
       switch (lens)
       {
-         case NARROW:
-            return new NarrowLensCameraConfig(name);
+         case TIGHT:
+            return new TightLensCameraConfig(name);
 
          case WIDE:
             return new WideLensCameraConfig(name);
@@ -24,8 +24,8 @@ public class CameraFactory
    {
       switch (lens)
       {
-         case NARROW:
-            return new NarrowLensCameraConfig(name, number);
+         case TIGHT:
+            return new TightLensCameraConfig(name, number);
 
          case WIDE:
             return new WideLensCameraConfig(name, number);

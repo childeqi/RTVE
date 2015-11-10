@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <style name="CountDownTextStyle" parent="android:Widget.TextView">
+      <item name="android:layout_width">wrap_content</item>
+      <item name="android:layout_height">wrap_content</item>
+      <item name="android:layout_alignBottom">@id/camera_view_delete_button</item>
+      <item name="android:layout_alignParentBottom">false</item>
+      <item name="android:layout_alignParentTop">true</item>
+      <item name="android:layout_toRightOf">@id/camera_view_record_button</item>
+      <item name="android:layout_marginLeft">2.5dp</item>
+      <item name="android:layout_marginRight">5dp</item>
+      <item name="android:layout_marginTop">5dp</item>
+      <item name="android:layout_gravity">center</item>
+      <item name="android:gravity">center_vertical|center_horizontal</item>
+      <item name="android:background">#115300</item>
+      <item name="android:paddingLeft">5dp</item>
+      <item name="android:paddingRight">5dp</item>
+      <item name="android:singleLine">true</item>
+      <item name="android:inputType">none</item>
+   </style>
+
+   <style name="CountDownTextAppearance" parent="android:style/TextAppearance.Large">
+      <item name="android:textSize">30sp</item>
+      <item name="android:textColor">@android:color/white</item>
+      <item name="android:textStyle">bold</item>
+      <item name="android:typeface">normal</item>
+   </style>
+
+</resources>

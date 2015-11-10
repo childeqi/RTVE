@@ -16,8 +16,8 @@ public abstract class CameraConfig implements Parcelable
          LensType lens = (LensType) in.readSerializable();
          switch (lens)
          {
-            case NARROW:
-               return new NarrowLensCameraConfig(in);
+            case TIGHT:
+               return new TightLensCameraConfig(in);
 
             case WIDE:
                return new WideLensCameraConfig(in);

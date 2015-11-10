@@ -167,8 +167,8 @@ public class AddCameraDialogFragment extends DialogFragment
          LensType lens;
          switch (lensRadioGroup.getCheckedRadioButtonId())
          {
-            case R.id.dialog_add_camera_radio_narrow:
-               lens = LensType.NARROW;
+            case R.id.dialog_add_camera_radio_tight:
+               lens = LensType.TIGHT;
                break;
 
             case R.id.dialog_add_camera_radio_wide:

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.rtve.ui.CameraView
+   android:id="@+id/camera_view"
+   xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="wrap_content"
+   android:layout_height="wrap_content"
+   android:background="@android:color/transparent">
+
+   <TextView
+      android:id="@+id/camera_view_name"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerHorizontal="true"
+      android:layout_gravity="center"
+      android:gravity="center_vertical|center_horizontal"
+      android:inputType="none"
+      android:singleLine="true"
+      android:text="CamName"
+      android:textSize="30sp"
+      android:textStyle="bold"
+      android:typeface="normal"
+      android:textColor="#ffffff"
+      />
+
+   <RelativeLayout
+      android:id="@+id/camera_view_background"
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/camera_view_name"
+      android:background="#ff0000">
+
+      <View class="com.rtve.ui.CameraView$CountDownTextView"
+         android:id="@+id/camera_view_time"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBottom="@+id/camera_view_delete_button"
+         android:layout_alignParentBottom="false"
+         android:layout_alignParentTop="true"
+         android:layout_gravity="center"
+         android:layout_marginLeft="2.5dp"
+         android:layout_marginRight="5dp"
+         android:layout_marginTop="5dp"
+         android:layout_toRightOf="@+id/camera_view_record_button"
+         android:background="#115300"
+         android:gravity="center_vertical|center_horizontal"
+         android:inputType="none"
+         android:paddingLeft="5dp"
+         android:paddingRight="5dp"
+         android:singleLine="true"
+         android:text="00:00:00"
+         android:textAppearance="?android:attr/textAppearanceLarge"
+         android:textSize="30sp"
+         android:textStyle="bold"
+         android:typeface="normal"
+         android:visibility="visible"
+         android:textColor="#ffffff"/>
+
+      <ToggleButton
+         android:id="@id/camera_view_record_button"
+         android:layout_width="50dp"
+         android:layout_height="50dp"
+         android:layout_alignParentLeft="true"
+         android:layout_alignParentTop="true"
+         android:layout_marginBottom="2.5dp"
+         android:layout_marginLeft="5dp"
+         android:layout_marginRight="2.5dp"
+         android:layout_marginTop="5dp"
+         android:textOn=""
+         android:textOff=""
+         android:background="@drawable/camera_view_record_selector"/>
+
+      <ImageButton
+         android:id="@id/camera_view_delete_button"
+         android:layout_width="50dp"
+         android:layout_height="50dp"
+         android:layout_alignParentLeft="true"
+
+         android:layout_below="@id/camera_view_record_button"
+         android:layout_marginBottom="5dp"
+         android:layout_marginLeft="5dp"
+         android:layout_marginRight="2.5dp"
+         android:layout_marginTop="2.5dp"
+         android:background="#000000"
+         android:tint="@android:color/holo_red_dark"
+         android:src="@drawable/ic_delete"/>
+
+   </RelativeLayout>
+
+   <FrameLayout
+      android:id="@+id/camera_view_drag_bg"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/camera_view_name"
+      android:layout_toRightOf="@id/camera_view_background"
+      android:background="#ffffff"
+      android:foregroundTintMode="src_over">
+
+      <Button
+         android:id="@+id/camera_view_drag_button"
+         android:layout_width="25dp"
+         android:layout_height="25dp"
+
+         android:layout_margin="5dp"
+
+         android:background="#000000"
+         android:minHeight="0dp"
+         android:minWidth="0dp"
+         android:text="D&amp;D"
+         android:textColor="#ffffff"/>
+   </FrameLayout>
+</com.rtve.ui.CameraView>

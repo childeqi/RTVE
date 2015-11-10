@@ -12,7 +12,7 @@
    <string name="dialog_add_camera_camera_name">Camera Name</string>
    <string name="dialog_add_camera_lens_type">Lens Type:</string>
    <string name="dialog_add_camera_wide">Wide</string>
-   <string name="dialog_add_camera_radio_narrow">Narrow</string>
+   <string name="dialog_add_camera_radio_tight">Tight</string>
    <string name="dialog_add_camera_ok">OK</string>
    <string name="dialog_add_camera_cancel">Cancel</string>
    <string name="dialog_add_camera_error_invalid">Cannot add camera: Name invalid!</string>

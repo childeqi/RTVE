@@ -5,19 +5,19 @@ import android.os.Parcel;
 /**
  * Created by Matt on 10/10/2015.
  */
-public class NarrowLensCameraConfig extends CameraConfig
+public class TightLensCameraConfig extends CameraConfig
 {
-   public NarrowLensCameraConfig(String name)
+   public TightLensCameraConfig(String name)
    {
       super(name);
    }
 
-   public NarrowLensCameraConfig(String name, int number)
+   public TightLensCameraConfig(String name, int number)
    {
       super(name, number);
    }
 
-   protected NarrowLensCameraConfig(Parcel in)
+   protected TightLensCameraConfig(Parcel in)
    {
       super(in);
    }
@@ -25,6 +25,6 @@ public class NarrowLensCameraConfig extends CameraConfig
    @Override
    public LensType getLensType()
    {
-      return LensType.NARROW;
+      return LensType.TIGHT;
    }
 }

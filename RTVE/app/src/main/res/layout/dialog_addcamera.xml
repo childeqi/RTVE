@@ -50,13 +50,13 @@
                   android:layout_marginRight="4dp"
                   android:layout_marginTop="8dp"
                   android:orientation="vertical"
-                  android:checkedButton="@+id/dialog_add_camera_radio_narrow">
+                  android:checkedButton="@+id/dialog_add_camera_radio_tight">
 
          <RadioButton
-            android:id="@id/dialog_add_camera_radio_narrow"
+            android:id="@id/dialog_add_camera_radio_tight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/dialog_add_camera_radio_narrow"/>
+            android:text="@string/dialog_add_camera_radio_tight"/>
 
          <RadioButton
             android:id="@+id/dialog_add_camera_radio_wide"
