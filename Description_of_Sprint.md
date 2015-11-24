@@ -3,23 +3,19 @@
 #####
 #####
 #####Team communication:
-This time, we didn’t have a chance to meet together. Our group members were kind of busy and it’s hard to find a good meeting time for everyone. So, we met separately to talk about what we need to do in the beginning of this sprint. Then, we worked independently and reported in the online group chat as what we did in other sprints. 
+For this final deliverable, we had one face-to-face meeting in the middle. Online group chat worked very well as before, but we think that face-to-face meeting is also important especially for this time: the changes of the user stories make our process very slow and talking with each other actually helps a lot. Some ideas that never showed up in online chatting actually came out when we were talking with each other in the meeting.
 
 #####
 #####
 #####Challenges of coding:
-After we got the feedback from the customer in the end of last sprint, we found that there were a lot of changes needed to be done in this time. The biggest change, also the most important one, the interface. From the picture the customer draw for us, we need some camera icon. These icons are more than simple pictures that only make the interface looks cuter; they are also showing the states of the cameras. Different colors of the borders and the filled parts represent distinct states. For example, when the border is white, the camera is not recording, the red border means it’s recording, and the yellow one means that a 30min-limited camera is almost out of time. 
-The interface is not the only thing we need to change. From the details the customer offered, we also made some changes in our user stories. 
+After that huge change of our user stories, we had a hard time. Most user stories are related: when you can figure out one, you can get all of them done; but if you don’t, you get stuck. We were really stuck in the beginning. For the entire first week, we didn’t get any movement even we worked a lot, which made us really upset. One of our developers just got familiar with Android, and the other one just started working on front-end. So, for them, these user stories are tough. 
+We had a hard time, but we came over it. Now, we have most of the user stories done.
 
-#####
-#####
-#####Problems and Solutions:
-This time, one accident happened: one of our developers, his Android Studio was freezing every time while rendering. That made us upset and really slowed our process down. Although he figured out why it’s freezing, we already lost a lot of time and we couldn’t finish all the user stories we planned in the beginning of this sprint. 
 
 #####
 #####
 #####User Stories Changing:
-######New user stories:
+New user stories:
 1. As a cameraman, I want each camera icon to be laid out as shown in "RT Video Editor Program Mockup.jpg" so that I have a familiar and easy-to-use interface.
 2. As a cameraman, I want to be able to have multiple cameras recording at once so that the app reflects the state of the cameras in real life.
 3. As a cameraman, I want to be able to mark a camera as 30 minute time-limited so that I can see how much more time I have before the camera runs out of space.
@@ -34,4 +30,4 @@ This time, one accident happened: one of our developers, his Android Studio was 
 #####
 #####
 #####Interactions with customer:
-While working with the camera icons and trying to figure the functions, we told him about what confused us. After the communication, the picture of what the application should look like become clear. In addition, the customer likes the new interface we have now and we are happy about that.
+Till now, the customer likes our interface. And we just get something new and haven’t shown him the newest one. 
