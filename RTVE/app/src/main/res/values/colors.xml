@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <color name="camera_view_record_red">@android:color/holo_red_dark</color>
+   <color name="camera_view_selected_green">#115300</color>
+</resources>
