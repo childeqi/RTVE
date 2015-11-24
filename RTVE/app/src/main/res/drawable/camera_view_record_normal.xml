@@ -12,10 +12,11 @@
    </item>
    <item>
       <shape xmlns:android="http://schemas.android.com/apk/res/android"
-             android:innerRadius="12.5dp"
+             android:innerRadius="0dp"
              android:shape="ring"
+             android:thickness="15dp"
              android:useLevel="false">
-         <solid android:color="#b7b7b7"/>
+         <solid android:color="@android:color/holo_red_dark"/>
       </shape>
    </item>
 </layer-list>

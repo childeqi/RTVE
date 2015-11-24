@@ -4,7 +4,7 @@
    <!-- action bar -->
    <string name="action_add_camera">Add Camera</string>
    <string name="action_stop">Stop</string>
-   <string name="action_save">Add Camera</string>
+   <string name="action_save">Save Configuration</string>
    <string name="action_settings">Settings</string>
 
    <!-- add camera dialog -->
@@ -13,6 +13,7 @@
    <string name="dialog_add_camera_lens_type">Lens Type:</string>
    <string name="dialog_add_camera_wide">Wide</string>
    <string name="dialog_add_camera_radio_tight">Tight</string>
+   <string name="dialog_add_camera_DSLR">DSLR (30 min. limit)</string>
    <string name="dialog_add_camera_ok">OK</string>
    <string name="dialog_add_camera_cancel">Cancel</string>
    <string name="dialog_add_camera_error_invalid">Cannot add camera: Name invalid!</string>

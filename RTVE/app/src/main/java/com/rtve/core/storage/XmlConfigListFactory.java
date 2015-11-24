@@ -23,7 +23,10 @@ class XmlConfigListFactory
 
       for (Camera cam : config.getCameras())
       {
-         toReturn.add(CameraFactory.loadCamera(cam.getNumber(), cam.getName(), cam.getLensType()));
+         toReturn.add(CameraFactory.loadCamera(cam.getNumber(),
+                                               cam.getName(),
+                                               cam.isTimeLimited(),
+                                               cam.getLensType()));
       }
 
       return toReturn;
@@ -40,7 +43,10 @@ class XmlConfigListFactory
 
       for (CameraConfig config : list.getBackingList())
       {
-         cameras.add(new Camera(config.getNumber(), config.getName(), config.getLensType()));
+         cameras.add(new Camera(config.getNumber(),
+                                config.getName(),
+                                config.isTimeLimited(),
+                                config.getLensType()));
       }
 
       return new Configuration(cameras);

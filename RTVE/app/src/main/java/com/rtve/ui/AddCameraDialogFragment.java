@@ -11,6 +11,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -179,8 +180,12 @@ public class AddCameraDialogFragment extends DialogFragment
                throw new IllegalStateException("Neither lens type radio button is selected");
          }
 
+         // get whether this is time limited or not
+         CheckBox cb = (CheckBox) rootView.findViewById(R.id.dialog_add_camera_time_limited);
+         boolean timeLimited = cb.isChecked();
+
          // create CameraConfig and callback
-         CameraConfig newConfig = CameraFactory.createCamera(name, lens);
+         CameraConfig newConfig = CameraFactory.createCamera(name, timeLimited, lens);
          listener.cameraAdded(this, newConfig);
          return true;
       }

@@ -2,16 +2,9 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
           tools:ignore="ExtraText">
-   // pressed turning the toggle on
-   <item android:drawable="@drawable/camera_view_record_unselected_pressed"
-         android:state_checked="true"
+   // pressed
+   <item android:drawable="@drawable/camera_view_record_pressed"
          android:state_pressed="true"/>
-   // pressed, turning the toggle off
-   <item android:drawable="@drawable/camera_view_record_selected_pressed"
-         android:state_pressed="true"/>
-   // non-pressed, checked
-   <item android:drawable="@drawable/camera_view_record_selected"
-         android:state_checked="true"/>
-   // non-pressed, non-checked
-   <item android:drawable="@drawable/camera_view_record_selected"/>
+   // normal (non-pressed)
+   <item android:drawable="@drawable/camera_view_record_normal"/>
 </selector>

@@ -14,58 +14,52 @@
               android:paddingLeft="@dimen/activity_horizontal_margin"
               android:paddingRight="@dimen/activity_horizontal_margin"
               android:paddingTop="@dimen/activity_vertical_margin"
-              tools:context="com.rtve.ui.LandingScreenActivity">
+              tools:context="com.rtve.ui.LandingScreenActivity"
+   >
 
    <TextView
       android:id="@+id/landingScreenTitle"
       android:layout_width="fill_parent"
       android:layout_height="wrap_content"
-      android:layout_gravity="center"
-      android:layout_marginBottom="40dp"
-      android:layout_marginLeft="20dp"
-      android:layout_marginRight="20dp"
       android:enabled="true"
-      android:gravity="center_vertical|center_horizontal"
+      android:gravity="fill_vertical|center_horizontal"
       android:inputType="none"
       android:singleLine="false"
       android:text="@string/landing_title"
       android:textAppearance="?android:attr/textAppearanceLarge"
       android:textSize="40sp"
       android:textStyle="bold|italic"
-      android:typeface="normal"/>
+      android:typeface="normal"
+      android:layout_weight=".50"/>
 
    <ImageView
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:id="@+id/appIconImageView"
       android:layout_gravity="center"
-      android:layout_marginBottom="40dp"
       android:src="@drawable/slide_cameras"
-      android:scaleType="centerCrop"
+      android:scaleType="fitCenter"
       android:contentDescription="@string/landing_image_description"
-      android:adjustViewBounds="false"/>
+      android:adjustViewBounds="true"
+      android:layout_weight="0"/>
 
    <Button
       android:id="@+id/loadConfigButton"
       android:layout_width="fill_parent"
       android:layout_height="wrap_content"
       android:layout_gravity="center"
-      android:layout_marginBottom="5dp"
-      android:layout_marginLeft="20dp"
-      android:layout_marginRight="20dp"
       android:text="@string/landing_load_config"
       android:textSize="20sp"
-      android:onClick="loadConfig"/>
+      android:onClick="loadConfig"
+      android:layout_weight=".25"/>
 
    <Button
       android:id="@+id/newConfigButton"
       android:layout_width="fill_parent"
       android:layout_height="wrap_content"
       android:layout_gravity="center"
-      android:layout_marginLeft="20dp"
-      android:layout_marginRight="20dp"
-      android:layout_marginTop="5dp"
       android:text="@string/landing_new_config"
       android:textSize="20sp"
-      android:onClick="newConfig"/>
+      android:onClick="newConfig"
+      android:layout_weight=".25"/>
 </LinearLayout>

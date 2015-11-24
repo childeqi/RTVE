@@ -32,8 +32,7 @@
       android:background="#ffffff">
 
       <LinearLayout
-         android:id="@+id/camera_view_center_bg"
-         android:orientation="vertical"
+         android:id="@+id/camera_view_center"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:layout_alignBottom="@+id/camera_view_delete_button"
@@ -43,49 +42,51 @@
          android:layout_marginRight="5dp"
          android:layout_marginTop="5dp"
          android:layout_toRightOf="@+id/camera_view_record_button"
-         android:background="#115300">
+         android:background="@android:color/black"
+         android:orientation="vertical">
 
 
-      <view
-         android:id="@+id/camera_view_time"
-         class="com.rtve.ui.CameraView$CountDownTextView"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_gravity="center"
-         android:layout_weight="0.5"
-         android:gravity="bottom|center_horizontal"
-         android:paddingLeft="5dp"
-         android:paddingRight="5dp"
-         android:singleLine="true"
-         android:text="00:00:00"
-         android:textAppearance="?android:attr/textAppearanceLarge"
-         android:textColor="#ffffff"
-         android:textSize="30sp"
-         android:textStyle="bold"
-         android:typeface="normal"/>
+         <view
+            android:id="@+id/camera_view_time"
+            class="com.rtve.ui.CameraView$CountDownTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.5"
+            android:background="@android:color/transparent"
+            android:gravity="bottom|center_horizontal"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:singleLine="true"
+            android:text="00:00:00"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#ffffff"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:typeface="normal"/>
 
-      <TextView
-         android:id="@+id/camera_view_lens_type"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_gravity="center"
-         android:layout_weight="0.5"
-         android:layout_marginLeft="2.5dp"
-         android:background="#115300"
-         android:gravity="top|center_horizontal"
-         android:paddingLeft="5dp"
-         android:paddingRight="5dp"
-         android:singleLine="true"
-         android:text="Wide"
-         android:textAppearance="?android:attr/textAppearanceLarge"
-         android:textColor="#ffffff"
-         android:textSize="15sp"
-         android:textStyle="bold"
-         android:typeface="normal"/>
+         <TextView
+            android:id="@+id/camera_view_lens_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="2.5dp"
+            android:layout_weight="0.5"
+            android:background="@android:color/transparent"
+            android:gravity="top|center_horizontal"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:singleLine="true"
+            android:text="Wide"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:typeface="normal"/>
 
       </LinearLayout>
 
-      <Button
+      <ImageButton
          android:id="@id/camera_view_record_button"
          android:layout_width="50dp"
          android:layout_height="50dp"
@@ -95,7 +96,10 @@
          android:layout_marginLeft="5dp"
          android:layout_marginRight="2.5dp"
          android:layout_marginTop="5dp"
-         android:background="@drawable/camera_view_record_selector"/>
+         android:background="@android:color/black"
+         android:scaleType="center"
+         android:src="@drawable/camera_view_record_selector"
+         />
 
       <ImageButton
          android:id="@id/camera_view_delete_button"
@@ -107,26 +111,20 @@
          android:layout_marginLeft="5dp"
          android:layout_marginRight="2.5dp"
          android:layout_marginTop="2.5dp"
-         android:background="#000000"
-         android:src="@drawable/ic_delete"
-         android:tint="@android:color/holo_red_dark"/>
+         android:background="@android:color/black"
+         android:scaleType="center"
+         android:src="@drawable/camera_view_delete_normal"
+         />
 
    </RelativeLayout>
 
-   <FrameLayout
-      android:id="@+id/camera_view_drag_bg"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
+   <ImageButton
+      android:id="@+id/camera_view_drag_grip"
+      android:layout_width="30dp"
+      android:layout_height="35dp"
       android:layout_below="@id/camera_view_name"
       android:layout_toRightOf="@id/camera_view_background"
-      android:background="#ffffff"
-      >
-
-      <Button
-         android:id="@+id/camera_view_drag_button"
-         android:layout_width="15dp"
-         android:layout_height="25dp"
-         android:layout_margin="5dp"
-         android:background="#000000"/>
-   </FrameLayout>
+      android:src="@drawable/camera_view_drag_normal"
+      android:background="@android:color/black"
+      />
 </com.rtve.ui.CameraView>
