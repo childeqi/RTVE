@@ -1,14 +1,13 @@
 package com.rtve.ui;
 
 import android.content.Context;
-import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.GridView;
-import android.widget.RadioGroup;
-import android.widget.ToggleButton;
+import android.widget.Toast;
 
+import com.rtve.R;
 import com.rtve.common.CameraConfig;
 import com.rtve.common.CameraConfigList;
 import com.rtve.common.CameraTimeRecorder;
@@ -18,11 +17,11 @@ import com.rtve.common.CameraTimeRecorder;
  */
 public class CameraListAdapter
         extends BaseAdapter
-        implements View.OnClickListener,
-                   RadioGroup.OnCheckedChangeListener,
+        implements CameraView.CameraViewDeletionListener,
+                   CameraViewGroup.SelectedCameraListener,
                    CameraConfigList.CameraListChangeListener
 {
-   private final RadioGroup         rgp;
+   private final CameraViewGroup    cvGroup;
    private final CameraConfigList   configList;
    private       CameraTimeRecorder recorder;
    private       Context            mContext;
@@ -32,16 +31,19 @@ public class CameraListAdapter
                             CameraTimeRecorder recorder)
    {
       mContext = c;
-      rgp = new RadioGroup(c);
-      rgp.setOnCheckedChangeListener(this);
+      this.recorder = recorder;
+
       this.configList = configList;
       configList.addChangeListener(this);
-      this.recorder = recorder;
+
+      cvGroup = new CameraViewGroup();
+      cvGroup.addSelectedCameraListener(this);
+
    }
 
    public void resetTiming(CameraTimeRecorder newRecorder)
    {
-      rgp.clearCheck();
+      cvGroup.resetCameraViews();
       this.recorder = newRecorder;
    }
 
@@ -71,52 +73,23 @@ public class CameraListAdapter
    @Override
    public View getView(int position, View convertView, ViewGroup parent)
    {
-      ToggleButton button;
+      CameraView camView;
       if (convertView == null)
       {
          // if it's not recycled, initialize some attributes
-         button = new ToggleButton(mContext);
-         button.setLayoutParams(new GridView.LayoutParams(GridView.LayoutParams.MATCH_PARENT,
-                                                          GridView.LayoutParams.MATCH_PARENT));
-         button.setTextIsSelectable(false);
-         button.setMaxLines(2);
-         button.setHorizontallyScrolling(false);
-         button.setPadding(20, 20, 20, 20);
-         button.setTextSize(20);
-         button.setGravity(Gravity.CENTER);
-         button.setAllCaps(false);
-         button.setOnClickListener(this);
-         rgp.addView(button);
+         camView = (CameraView) LayoutInflater.from(mContext).inflate(R.layout.camera_view,
+                                                          null, false);
+//         camView = new CameraView(mContext);
+         camView.addDeletionListener(this);
+         cvGroup.addCameraView(camView);
       }
       else
       {
-         button = (ToggleButton) convertView;
+         camView = (CameraView) convertView;
       }
 
-      String text = configList.get(position).toString();
-      button.setId(configList.get(position).getNumber());
-      button.setText(text);
-      button.setTextOn(text);
-      button.setTextOff(text);
-      return button;
-   }
-
-   @Override
-   public void onClick(View v)
-   {
-      rgp.clearCheck();
-      rgp.check(v.getId());
-      recorder.cameraSelected(getCameraWithId(v.getId()));
-   }
-
-   @Override
-   public void onCheckedChanged(final RadioGroup radioGroup, final int i)
-   {
-      for (int j = 0; j < radioGroup.getChildCount(); j++)
-      {
-         final ToggleButton view = (ToggleButton) radioGroup.getChildAt(j);
-         view.setChecked(view.getId() == i);
-      }
+      camView.setCameraConfig((CameraConfig) getItem(position));
+      return camView;
    }
 
    @Override
@@ -125,15 +98,23 @@ public class CameraListAdapter
       this.notifyDataSetChanged();
    }
 
-   private CameraConfig getCameraWithId(int id)
+   @Override
+   public void deletePressed(CameraView view)
    {
-      for (CameraConfig config : configList.getBackingList())
+      configList.remove(view.getCameraConfig());
+      cvGroup.removeCameraView(view);
+      Toast.makeText(view.getContext(),
+                     "\"" + view.getCameraConfig().getName() +
+                             "\" camera deleted.",
+                     Toast.LENGTH_SHORT).show();
+   }
+
+   @Override
+   public void selectedCameraChanged(CameraView selected)
+   {
+      if (selected != null)
       {
-         if (config.getNumber() == id)
-         {
-            return config;
-         }
+         recorder.cameraSelected(selected.getCameraConfig());
       }
-      return null;
    }
 }

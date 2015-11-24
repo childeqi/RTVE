@@ -6,63 +6,91 @@
               android:orientation="vertical">
 
    <TextView
-      style="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle"
       android:layout_width="match_parent"
-      android:layout_height="0dp"
+      android:layout_height="wrap_content"
       android:layout_weight="1"
-      android:text="@string/dialog_add_camera_header"/>
+      android:text="@string/dialog_add_camera_header"
+      style="@style/TextAppearance.AppCompat.Headline"
+      android:gravity="center_horizontal"
+      android:textStyle="bold"
+      android:textColor="@color/accent_material_dark"/>
+
+   <View
+      android:layout_width="fill_parent"
+      android:layout_height="1dp"
+      android:background="@color/background_material_dark" />
 
    <EditText
       android:id="@+id/dialog_add_camera_camera_name"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_marginBottom="8dp"
-      android:layout_marginLeft="4dp"
-      android:layout_marginRight="4dp"
-      android:layout_marginTop="16dp"
       android:hint="@string/dialog_add_camera_camera_name"
       android:inputType="text"
       android:maxLength="30"
       android:maxLines="1"
-      />
+      android:textStyle="bold"
+      android:layout_weight="0.5"
+      android:layout_marginLeft="4dp"
+      android:layout_marginRight="4dp"/>
 
-   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
-                 android:orientation="vertical">
+                 android:orientation="vertical"
+                 android:layout_weight="0.5"
+                   android:layout_marginLeft="4dp"
+                   android:layout_marginRight="4dp">
 
       <TextView
-         android:layout_width="match_parent"
+         android:id="@+id/dialog_add_camera_lens_type"
+         android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:layout_marginBottom="16dp"
-         android:layout_marginLeft="4dp"
-         android:layout_marginRight="4dp"
-         android:layout_marginTop="8dp"
          android:text="@string/dialog_add_camera_lens_type"
-         />
+         style="@style/TextAppearance.AppCompat.Widget.PopupMenu.Large"
+         android:textStyle="bold"
+         android:layout_alignParentLeft="true"
+         android:layout_alignParentTop="true"
+         android:layout_margin="4dp"/>
 
-      <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:id="@+id/dialog_add_camera_lens_radiogroup"
+      <RadioGroup android:id="@+id/dialog_add_camera_lens_radiogroup"
+                  xmlns:android="http://schemas.android.com/apk/res/android"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
-                  android:layout_marginBottom="16dp"
-                  android:layout_marginLeft="4dp"
-                  android:layout_marginRight="4dp"
-                  android:layout_marginTop="8dp"
+                  android:checkedButton="@+id/dialog_add_camera_radio_tight"
                   android:orientation="vertical"
-                  android:checkedButton="@+id/dialog_add_camera_radio_narrow">
+                  android:layout_alignParentTop="true"
+                  android:layout_toRightOf="@id/dialog_add_camera_lens_type"
+                  android:layout_marginLeft="4dp"
+                  android:layout_marginRight="4dp">
 
          <RadioButton
-            android:id="@id/dialog_add_camera_radio_narrow"
+            android:id="@id/dialog_add_camera_radio_tight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/dialog_add_camera_radio_narrow"/>
+            android:text="@string/dialog_add_camera_radio_tight"
+            style="@style/TextAppearance.AppCompat"
+            />
 
          <RadioButton
             android:id="@+id/dialog_add_camera_radio_wide"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/dialog_add_camera_wide"/>
+            android:text="@string/dialog_add_camera_wide"
+            style="@style/TextAppearance.AppCompat"
+            />
       </RadioGroup>
-   </LinearLayout>
+   </RelativeLayout>
+
+   <CheckBox
+      android:id="@+id/dialog_add_camera_time_limited"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:checked="false"
+      android:text="@string/dialog_add_camera_DSLR"
+      style="@style/TextAppearance.AppCompat.Widget.PopupMenu.Large"
+      android:textStyle="bold"
+                    android:layout_weight=".5"
+                    android:gravity="center_vertical"
+      android:layout_marginLeft="4dp"
+      android:layout_marginRight="4dp"/>
 </LinearLayout>

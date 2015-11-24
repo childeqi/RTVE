@@ -5,7 +5,7 @@ package com.rtve.common;
  */
 public enum LensType
 {
-   NARROW("Narrow Lens"),
+   TIGHT("Tight Lens"),
    WIDE("Wide Lens");
 
    private final String name;
