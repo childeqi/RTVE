@@ -95,23 +95,6 @@ public class XMLExporter implements CoreInterface
         }
     }
 
-    private boolean externalStorageAvailable()
-    {
-        return Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState());
-    }
-
-    //This creates a new directory for the xml output files.
-    private File getExternalStorageDir()
-    {
-        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), "Exported Premiere XML");
-
-        if(!(file.mkdirs() || file.isDirectory()))
-        {
-            Log.e(LOG_TAG, "Directory not created.");
-        }
-        return file;
-    }
-
     //The value of this method will be slightly off until I understand better how to account for ntsc.
     public static long getFrame(long time)
     {
