@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -14,7 +15,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.GridView;
 import android.widget.Toast;
 
 import com.rtve.R;
@@ -36,6 +36,7 @@ public class MainActivity
                    CameraTimeRecorder.TimingStartedCallback,
                    CameraConfigList.CameraListChangeListener
 {
+   private final static int MAX_NUM_CAMS = 7;
    private CameraListAdapter  cameraListAdapter;
    private CameraConfigList   cameraConfigList;
    private CameraTimeRecorder camTimeRecorder;
@@ -48,6 +49,9 @@ public class MainActivity
    {
       // Inflate the menu; this adds items to the action bar if it is present.
       getMenuInflater().inflate(R.menu.menu_main, menu);
+
+      // stop menu item should be long click only to prevent accidentally stopping
+      MenuItem stop = menu.findItem(R.id.action_stop);
 
       return true;
    }
@@ -106,30 +110,30 @@ public class MainActivity
       }
    }
 
-   public void setAddCamMenuItemEnabled(boolean enabled, boolean invalidate)
+   public void setAddCamMenuItemEnabled(boolean enabled)
    {
       if (addCamMenuItemEnabled != enabled)
       {
          addCamMenuItemEnabled = enabled;
-         if (invalidate) invalidateOptionsMenu();
+         invalidateOptionsMenu();
       }
    }
 
-   public void setStopMenuItemEnabled(boolean enabled, boolean invalidate)
+   public void setStopMenuItemEnabled(boolean enabled)
    {
       if (stopMenuItemEnabled != enabled)
       {
          stopMenuItemEnabled = enabled;
-         if (invalidate) invalidateOptionsMenu();
+         invalidateOptionsMenu();
       }
    }
 
-   public void setSaveMenuItemEnabled(boolean enabled, boolean invalidate)
+   public void setSaveMenuItemEnabled(boolean enabled)
    {
       if (saveMenuItemEnabled != enabled)
       {
          saveMenuItemEnabled = enabled;
-         if (invalidate) invalidateOptionsMenu();
+         invalidateOptionsMenu();
       }
    }
 
@@ -144,14 +148,14 @@ public class MainActivity
       List<TimeSlot> timeList = camTimeRecorder.stopTiming();
       CoreInterface  core     = new XMLExporter();
 
-      /* This proves that the timing works, and can be used for debugging
+      /* This proves that the timing works, and can be used for debugging */
       System.out.println("******************* TIMES **************************");
       for (TimeSlot slot : timeList)
       {
          System.out.println(slot.toString());
       }
       System.out.println("****************************************************");
-      */
+//      */
 
       // *************************** CALL CORE HERE ***********************************
       core.save(timeList, this);
@@ -160,8 +164,8 @@ public class MainActivity
 
       camTimeRecorder = new CameraTimeRecorder(this);
       cameraListAdapter.resetTiming(camTimeRecorder);
-      setAddCamMenuItemEnabled(true, false);
-      setStopMenuItemEnabled(false, true);
+      setAddCamMenuItemEnabled(true);
+      setStopMenuItemEnabled(false);
    }
 
    public void saveConfig()
@@ -259,14 +263,15 @@ public class MainActivity
    @Override
    public void cameraAdded(AddCameraDialogFragment dialog, CameraConfig newConfig)
    {
+      Log.d(getClass().getSimpleName(), "Camera added: " + newConfig.toString());
       cameraConfigList.add(newConfig);
    }
 
    @Override
    public void timingStarted()
    {
-      setAddCamMenuItemEnabled(false, false);
-      setStopMenuItemEnabled(true, true);
+      setAddCamMenuItemEnabled(false);
+      setStopMenuItemEnabled(true);
    }
 
    @Override
@@ -295,23 +300,41 @@ public class MainActivity
          }
       }
 
-      GridView gridview = (GridView) findViewById(R.id.gridview);
+      CameraDragLayer mainView = (CameraDragLayer) findViewById(R.id.mainview);
       cameraConfigList.addChangeListener(this);
       camTimeRecorder = new CameraTimeRecorder(this);
       cameraListAdapter = new CameraListAdapter(this, cameraConfigList, camTimeRecorder);
-      gridview.setAdapter(cameraListAdapter);
+      mainView.setAdapter(cameraListAdapter);
+   }
+
+   @Override
+   public void onConfigurationChanged(Configuration newConfig)
+   {
+      // ignore orientation change
+      super.onConfigurationChanged(newConfig);
    }
 
    @Override
    public void cameraListChanged(CameraConfigList list)
    {
-      if (cameraConfigList.size() > 0)
+      int size = list.size();
+      Log.d(getClass().getSimpleName(), "cameraListChanged called, list size = " + size);
+      if (size >= MAX_NUM_CAMS)
       {
-         setSaveMenuItemEnabled(true, true);
+         setSaveMenuItemEnabled(true);
+         setAddCamMenuItemEnabled(false);
       }
       else
       {
-         setSaveMenuItemEnabled(false, true);
+         if (size > 0)
+         {
+            setSaveMenuItemEnabled(true);
+         }
+         else
+         {
+            setSaveMenuItemEnabled(false);
+         }
+         setAddCamMenuItemEnabled(true);
       }
    }
 }
