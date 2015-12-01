@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <declare-styleable name="CameraView">
+      <attr name="camName" format="string"/>
+      <attr name="timeLimited" format="boolean"/>
+      <attr name="tightLens" format="boolean"/>
+      <attr name="wideLens" format="boolean"/>
+   </declare-styleable>
+</resources>

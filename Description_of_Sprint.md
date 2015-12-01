@@ -3,36 +3,31 @@
 #####
 #####
 #####Team communication:
-From the experience we got from last Sprint, we think online group chat is the most convenient way to communicate. We had two face-to-face meetings at the beginning. In the first one, the project manager had a talk with everyone individually to make sure everyone knew what to do. After several days, we met together again and talked about whether we needed any changes in our user stories or just keep on going based on the process of our developers. After those two meeting, we did all the communication through online group chat because we already have the generally legible direction we need.
+For this final deliverable, we had one face-to-face meeting in the middle. Online group chat worked very well as before, but we think that face-to-face meeting is also important especially for this time: the changes of the user stories make our process very slow and talking with each other actually helps a lot. Some ideas that never showed up in online chatting actually came out when we were talking with each other in the meeting.
 
 #####
 #####
 #####Challenges of coding:
-Actually, our developers don’t have experience with Android development. So it does take time. It is always the first step that is troublesome. So is learning a new programming language. How to add an icon? How to load a new picture? How to save the data? …… There were plenty of things they need to learn how to handle with. 
+After that huge change of our user stories, we had a hard time. Most user stories are related: when you can figure out one, you can get all of them done; but if you don’t, you get stuck. We were really stuck in the beginning. For the entire first week, we didn’t get any movement even we worked a lot, which made us really upset. One of our developers just got familiar with Android, and the other one just started working on front-end. So, for them, these user stories are tough. 
+We had a hard time, but we came over it. Now, we have most of the user stories done.
 
-#####
-#####
-#####Solutions:
-Although we really need time to learn how to deal with Android development part, our logic and structure are good. With the correct logic and structure, and the growing understanding of Android GUI, we realized that some of our user stories needed to be tuned. Some of the original user stories are kind of vague and big. So, some of them should be split into smaller and more elementary steps.
 
 #####
 #####
 #####User Stories Changing:
-######New user stories:
-        1.	As a cameraman, I want to be able to save my configurations.
-        2.	As a cameraman, I want to be able to load my configurations.
-        3.	As a cameraman, I want to be able to add multiple cameras.
-        4.	As a cameraman, I want each of my cameras is given an actual camera shaped icon, which make them easy to be identified.
-        5.	As a cameraman, I want to assign each camera a name to be displayed with the camera so that I can identify each camera on screen.
-        6.	As a cameraman, I want my camera icons can be moved so that I can place them anywhere I want.
-        7.	As a cameraman, I want to be able to add a stage with a stage icon.
-        8.	As a cameraman, I want the stage icon can be moved so that the stage and the cameras correspond with the real-life recording environment.
-        9.	As a cameraman, I want to be able to somehow select a camera and have the time of selection recorded so that I can later use this time information when editing the video.
-        10.	As a video editor, I want the app to output XML data about the times that each camera should be playing so that I can then later use these times when I am compiling the video.
-        11.	As a cameraman, I want to be able to set each camera as either wide or narrow lens.
-        12.	As a cameraman, I want to be able have the area in sight of the camera reflect its setting so that I can easily identify when a camera should have a subject in view. 
+New user stories:
+1. As a cameraman, I want each camera icon to be laid out as shown in "RT Video Editor Program Mockup.jpg" so that I have a familiar and easy-to-use interface.
+2. As a cameraman, I want to be able to have multiple cameras recording at once so that the app reflects the state of the cameras in real life.
+3. As a cameraman, I want to be able to mark a camera as 30 minute time-limited so that I can see how much more time I have before the camera runs out of space.
+4.	As a cameraman, I want to be able to drag and drop camera icons so that I can place them anywhere I want.
+5.	As a cameraman, I want there to be a stage icon so that I can use it as a reference for the position of the cameras.
+6.  As a cameraman, I want the button that allows the current recording session to finish to require a double click so that I do not accidentally end the recording session.
+7.  As a video editor, I want the XML that is output by the app to be loadable by Adobe Premiere so that I never need to look at raw XML.
+8.  As a video editor, I want the XML file that is output to be easily transferable from the phone/tablet to my computer so that I can access it easily when it is time to use it.
+9.  As a cameraman, I want to be able to delete cameras so that I can remove cameras created by mistake.
+10.  As a cameraman, I want to be able to delete saved configurations so that I can prevent an accumulation of configurations that are no longer needed.
 
 #####
 #####
-#####Others:
-An interesting fact is: the new ordered user stories are very different from the old ones that we got before we were really dealing with the challenges of the Android GUI. The more we learn about the Android GUI, the better we understand the user stories. When we are working with the GUI, we are actually performing as a developer and a user at the same time. At the time we are trying to put the ideal functions into reality, we are realizing that that every single function actually has more steps than we thought. The changes of our user stories surprised us. At the same time, however, it’s the proof of our deliberation of the application.
+#####Interactions with customer:
+Till now, the customer likes our interface. And we just get something new and haven’t shown him the newest one. 

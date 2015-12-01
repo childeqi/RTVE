@@ -1,20 +1,33 @@
 package com.rtve.core;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Environment;
+import android.support.v7.app.AppCompatActivity;
+
+import android.util.Log;
+
 import com.rtve.common.TimeSlot;
 
 import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
+
 
 /**
  * Created by mdomonic on 10/8/2015.
  */
 public class XMLExporter implements CoreInterface
 {
-    public void save(List<com.rtve.common.TimeSlot> timeSlots)
+    public static final String LOG_TAG = "XMLExporter";
+    private String outputFileName = "RTVE_output.xml";
+
+    public void save(List<com.rtve.common.TimeSlot> timeSlots, Context activity)
     {
         List<Clip> clips = new ArrayList<Clip>(timeSlots.size());
         List<ClipItem> clipItems = new ArrayList<ClipItem>(timeSlots.size());
@@ -53,21 +66,33 @@ public class XMLExporter implements CoreInterface
         xmeml xmeml = new xmeml(project, 4);
 
         Serializer serializer = new Persister();
-        File outputXML = new File("output.xml");
 
         try
         {
+            FileOutputStream outputXML = activity.openFileOutput(outputFileName, Context.MODE_PRIVATE);
             serializer.write(xmeml, outputXML);
         }
-        catch(Exception e)
-        {
-            System.out.println(e);
+        catch(Exception e) {
+            Log.e(LOG_TAG, "Error writing XML file", e);
         }
     }
 
-    public void send()
+    public void send(Context activity)
     {
-        return;
+        File xmlToSend = activity.getFileStreamPath(outputFileName);
+        if(xmlToSend.exists() && xmlToSend.isFile())
+        {
+            Intent emailIntent = new Intent(Intent.ACTION_SEND);
+            emailIntent.setData(Uri.parse("mailto:"));
+            emailIntent.setType("text/plain");
+            emailIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(xmlToSend));
+            activity.startActivity(Intent.createChooser(emailIntent, "Send email with:"));
+
+        }
+        else
+        {
+            Log.e(LOG_TAG, "File to send doesn't exist.");
+        }
     }
 
     //The value of this method will be slightly off until I understand better how to account for ntsc.

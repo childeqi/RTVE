@@ -1,9 +1,10 @@
-##Description of Chosen User Stories
+##Description of Chosen User Stories:
 ######(Details of Why Those User Stories are Chosen)
 
-At the time we were working with the Android GUI, we realized that the user stories are not just the requirements or functions – they are also the basic steps and parts of the structures that makes up the GUI. And the most frequent word we can find in our 12 user stories is: camera. Thus, the function of adding cameras (User Story 3) became the first name on our wanted list.
+In this deliverable, we are supposed to finish all the user stories. Also, due to the big change of user stories, at the beginning of this deliverable, there are 8 user stories waiting for us, which is a really big challenge for the developers and tester.
 
-If we can make the adding-cameras function work, are there any other user stories that can be done while implemening that function? Then we set our eyes on user story 5 and 11. User story 5 requires us to add and save the information of the cameras and user story 11 asks for the properties. Obviously, these two user stories have very tight relation with the user story 3. Which means that they can be done easier than other when we have working user story 3 as the base. Thus, they were chosen.
+What can we do in two weeks? What can we achieve in two weeks? Do as much as we can.
 
-But, why did we choose user stories 9 and 10? It seems a better idea to choose 4 or 6 because they are also based on the user story 3. The reason is: practicality. When we met with our customer, he said that he wanted the application to be more practical than pretty. And at first, in the image of the application GUI he pictured for us, there weren't any movable camera icons – there were only camera buttons. Of course, beautiful movable icons will be more fancy. But, it’s not what we need in this period. What’s the practical function we need after “we have a camera/cameras”? User stories 9 and 10. Actually, user stories 9 and 10 were user stories 1 and 2 in the previous user story version, which means that they are top 2 practical functions the customer needs. That’s the reason we choose them.
+We find that user stories 1, 2, 3, 4 and 9 are sharing similarities. Also, they are all talking about how the camera icons should look like in different conditions. So, these user stories make up the basic layout of the interface we want. Thus, if we can make as many of them as we can first, we can say that our application has a good shape. 
 
+In addition, because our user stories are ordered, we were following the order when we were working on them. Obviously, without user story one, none of other user stories are possible. User story 2 and 3 are related and 2 is much more important than 3. User story 4 is a very hard one, but it’s important for user. So, we give it priority and make it before user story 9 though user story 9 is much easier.
