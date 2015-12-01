@@ -17,7 +17,6 @@ public class CameraConfigLoaderTest {
     public void configLoaderTest(){
         AndroidTestCase test = new AndroidTestCase();
         Context c = new MockContext();
-        CameraConfigLoader testLoad = new CameraConfigLoader(); //Made temporarily public for testing
-        assertNotNull(testLoad.getAvailableConfigNames(c));
+        assertNotNull(CameraConfigLoader.getAvailableConfigNames(c));
     }
 }

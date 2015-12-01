@@ -1,14 +1,14 @@
 package com.rtve.coreTest;
 
+import android.content.Context;
 import android.os.Environment;
-import android.util.Log;
+import android.test.mock.MockContext;
 
 import com.rtve.common.CameraTime;
 import com.rtve.common.TimeSlot;
 import com.rtve.core.XMLExporter;
 
 import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -25,7 +25,6 @@ import java.util.List;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 import static org.mockito.Mockito.when;
 
 /**
@@ -62,9 +61,9 @@ public class XMLExporterTest
     {
         List<TimeSlot> timeSlotList = setUpTimeSlotList(0, 10);
         File output = new File(getExternalDir(), xmlFileName);
-
+        Context c = new MockContext();
         XMLExporter export = new XMLExporter();
-        export.save(timeSlotList);
+        export.save(timeSlotList, c);
         assertThat(output.exists(), is(true));
         assertThat(output.isFile(), is(true));
     }
@@ -77,10 +76,10 @@ public class XMLExporterTest
         List<TimeSlot> secondList = setUpTimeSlotList(10, 100);
 
         File second = new File(getExternalDir(), xmlFileName);
-
+        Context c = new MockContext();
         XMLExporter export = new XMLExporter();
-        export.save(firstList);
-        export.save(secondList);
+        export.save(firstList, c);
+        export.save(secondList, c);
         assertThat(second.exists(), is(true));
         assertThat(second.isFile(), is(true));
     }
@@ -91,10 +90,10 @@ public class XMLExporterTest
     {
         List<TimeSlot> firstList = setUpTimeSlotList(0, 10);
         List<TimeSlot> secondList = setUpTimeSlotList(11, 100);
-
+        Context c = new MockContext();
         XMLExporter export = new XMLExporter();
-        export.save(firstList);
-        export.save(secondList);
+        export.save(firstList, c);
+        export.save(secondList, c);
 
         String str = getFileData(xmlFileName);
         System.out.println(str);
@@ -108,9 +107,9 @@ public class XMLExporterTest
     public void test4_xmlExporter_save()
     {
         List<TimeSlot> timeSlotList = setUpTimeSlotList(0, 10);
-
+        Context c = new MockContext();
         XMLExporter export = new XMLExporter();
-        export.save(timeSlotList);
+        export.save(timeSlotList, c);
 
         String str = getFileData(xmlFileName);
         System.out.println(str);
