@@ -39,9 +39,9 @@ public class CameraConfigLoader
       {
          for (java.io.File file : configFileList)
          {
-            toReturn.add(file.getName()
-                             .substring(CameraConfigSaver.CONFIG_STORAGE_PREFIX.length(),
-                                        CameraConfigSaver.CONFIG_STORAGE_SUFFIX.length()));
+            String name = file.getName();
+            toReturn.add(name.substring(CameraConfigSaver.CONFIG_STORAGE_PREFIX.length(),
+                                        name.length() - CameraConfigSaver.CONFIG_STORAGE_SUFFIX.length()));
          }
       }
 
