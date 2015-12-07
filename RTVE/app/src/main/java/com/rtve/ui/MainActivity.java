@@ -149,13 +149,14 @@ public class MainActivity
       CoreInterface  core     = new XMLExporter();
 
       /* This proves that the timing works, and can be used for debugging */
+      /*
       System.out.println("******************* TIMES **************************");
       for (TimeSlot slot : timeList)
       {
          System.out.println(slot.toString());
       }
       System.out.println("****************************************************");
-//      */
+      */
 
       // *************************** CALL CORE HERE ***********************************
       core.save(timeList, this);
