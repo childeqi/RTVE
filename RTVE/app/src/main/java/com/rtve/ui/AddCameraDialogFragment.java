@@ -147,14 +147,33 @@ public class AddCameraDialogFragment extends DialogFragment
       String   name     = editText.getText().toString();
       // get the CameraConfigList given as an argument for this dialog
       CameraConfigList camConfigList = getCameraConfigList();
+
+      // get lens type radio button group
+      RadioGroup lensRadioGroup = (RadioGroup) rootView.findViewById(R.id.dialog_add_camera_lens_radiogroup);
+      // get the selected lens type
+      LensType lens;
+      switch (lensRadioGroup.getCheckedRadioButtonId())
+      {
+         case R.id.dialog_add_camera_radio_tight:
+            lens = LensType.TIGHT;
+            break;
+
+         case R.id.dialog_add_camera_radio_wide:
+            lens = LensType.WIDE;
+            break;
+
+         default:
+            throw new IllegalStateException("Neither lens type radio button is selected");
+      }
+
       // ensure that the name is valid
       if (!isNameValid(name))
       {
          displayErrorMessage(rootView.getContext(), R.string.dialog_add_camera_error_invalid);
          return false;
       }
-      // ensure that the name is unique
-      else if (!isNameUnique(name, camConfigList))
+      // ensure that the name and lens type combination is unique
+      else if (!isCameraUnique(name, lens, camConfigList))
       {
          displayErrorMessage(rootView.getContext(), R.string.dialog_add_camera_cancel_not_unique);
          return false;
@@ -162,23 +181,7 @@ public class AddCameraDialogFragment extends DialogFragment
       // valid camera name, so get lens type then add camera to list
       else
       {
-         // get lens type radio button group
-         RadioGroup lensRadioGroup = (RadioGroup) rootView.findViewById(R.id.dialog_add_camera_lens_radiogroup);
-         // get the selected lens type
-         LensType lens;
-         switch (lensRadioGroup.getCheckedRadioButtonId())
-         {
-            case R.id.dialog_add_camera_radio_tight:
-               lens = LensType.TIGHT;
-               break;
 
-            case R.id.dialog_add_camera_radio_wide:
-               lens = LensType.WIDE;
-               break;
-
-            default:
-               throw new IllegalStateException("Neither lens type radio button is selected");
-         }
 
          // get whether this is time limited or not
          CheckBox cb = (CheckBox) rootView.findViewById(R.id.dialog_add_camera_time_limited);
@@ -217,13 +220,14 @@ public class AddCameraDialogFragment extends DialogFragment
       return (name != null && !name.trim().isEmpty());
    }
 
-   private boolean isNameUnique(String name, CameraConfigList camConfigList)
+   private boolean isCameraUnique(String name, LensType type, CameraConfigList camConfigList)
    {
       // make sure that the entered camera name is unique from the previously configured cameras
       for (CameraConfig config : camConfigList.getBackingList())
       {
          // case insensitive comparison
-         if (name.equalsIgnoreCase(config.getName()))
+         if (name.equalsIgnoreCase(config.getName())
+                 && type == config.getLensType())
          {
             return false;
          }

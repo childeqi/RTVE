@@ -17,7 +17,7 @@
    <string name="dialog_add_camera_ok">OK</string>
    <string name="dialog_add_camera_cancel">Cancel</string>
    <string name="dialog_add_camera_error_invalid">Cannot add camera: Name invalid!</string>
-   <string name="dialog_add_camera_cancel_not_unique">Cannot add camera: Name already used!</string>
+   <string name="dialog_add_camera_cancel_not_unique">Cannot add camera: Name and Lens Type combination already used!</string>
 
    <!-- Landing screen -->
    <string name="title_activity_landing_screen">Landing Screen</string>
