@@ -181,8 +181,6 @@ public class AddCameraDialogFragment extends DialogFragment
       // valid camera name, so get lens type then add camera to list
       else
       {
-
-
          // get whether this is time limited or not
          CheckBox cb = (CheckBox) rootView.findViewById(R.id.dialog_add_camera_time_limited);
          boolean timeLimited = cb.isChecked();
