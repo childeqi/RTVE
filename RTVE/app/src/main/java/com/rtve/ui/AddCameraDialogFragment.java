@@ -214,7 +214,7 @@ public class AddCameraDialogFragment extends DialogFragment
 
    private boolean isNameValid(String name)
    {
-      return (name != null && !name.isEmpty());
+      return (name != null && !name.trim().isEmpty());
    }
 
    private boolean isNameUnique(String name, CameraConfigList camConfigList)
