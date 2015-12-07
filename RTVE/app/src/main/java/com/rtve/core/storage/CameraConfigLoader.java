@@ -40,7 +40,8 @@ public class CameraConfigLoader
          for (java.io.File file : configFileList)
          {
             toReturn.add(file.getName()
-                             .substring(CameraConfigSaver.CONFIG_STORAGE_PREFIX.length()));
+                             .substring(CameraConfigSaver.CONFIG_STORAGE_PREFIX.length(),
+                                        CameraConfigSaver.CONFIG_STORAGE_SUFFIX.length()));
          }
       }
 
@@ -55,7 +56,9 @@ public class CameraConfigLoader
       {
          for (java.io.File file : fileList)
          {
-            if (file.isFile() && file.getName().startsWith(CameraConfigSaver.CONFIG_STORAGE_PREFIX))
+            if (file.isFile()
+                    && file.getName().startsWith(CameraConfigSaver.CONFIG_STORAGE_PREFIX)
+                    && file.getName().endsWith(CameraConfigSaver.CONFIG_STORAGE_SUFFIX))
             {
                toReturn.add(file);
             }
@@ -87,8 +90,9 @@ public class CameraConfigLoader
       }
 
       java.io.File configFile = new java.io.File(c.getFilesDir(),
-                                                 CameraConfigSaver.CONFIG_STORAGE_PREFIX +
-                                                         configName);
+                                                 CameraConfigSaver.CONFIG_STORAGE_PREFIX
+                                                         + configName
+                                                         + CameraConfigSaver.CONFIG_STORAGE_SUFFIX);
 
       if (!configFile.isFile() || !configFile.canRead())
       {

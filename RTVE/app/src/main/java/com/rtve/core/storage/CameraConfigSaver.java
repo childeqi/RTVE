@@ -17,6 +17,7 @@ public class CameraConfigSaver
 {
    // package protected
    static final String CONFIG_STORAGE_PREFIX = "config_";
+   static final String CONFIG_STORAGE_SUFFIX = ".xml";
 
    private CameraConfigSaver()
    {
@@ -35,7 +36,9 @@ public class CameraConfigSaver
       }
 
       java.io.File configFile = new java.io.File(c.getFilesDir(),
-                                                 CameraConfigSaver.CONFIG_STORAGE_PREFIX + configName);
+                                                 CameraConfigSaver.CONFIG_STORAGE_PREFIX
+                                                         + configName
+                                                         + CONFIG_STORAGE_SUFFIX);
 
       boolean isNewFile;
       if (configFile.exists())
