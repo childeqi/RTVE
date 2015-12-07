@@ -220,8 +220,8 @@ public class MainActivity
          public void onClick(View v)
          {
             // get user input and use it as the configuration name
-            String input = userInput.getText().toString();
-            if (input.trim().isEmpty())
+            final String configName = userInput.getText().toString().trim();
+            if (configName.isEmpty())
             {
                Toast.makeText(MainActivity.this,
                               "Invalid Configuration Name",
@@ -229,37 +229,58 @@ public class MainActivity
 
                // since we didn't save, don't do anything (so dialog doesn't close)
             }
+            else if (CameraConfigSaver.configWithNameExists(MainActivity.this, configName))
+            {
+               new AlertDialog.Builder(v.getContext())
+                       .setTitle("Confirm Overwrite")
+                       .setMessage("A configuration with the name \"" + configName + "\" already exists."
+                                   + " Do you want to save over this configuration?")
+                       .setIcon(android.R.drawable.ic_dialog_alert)
+                       .setPositiveButton(android.R.string.yes,
+                                          new DialogInterface.OnClickListener()
+                                          {
+
+                                             public void onClick(DialogInterface dialog,
+                                                                 int whichButton)
+                                             {
+                                                MainActivity.this.finishSavingConfig(alertDialog, configName);
+                                             }
+                                          })
+                       .setNegativeButton(android.R.string.no, null).show();
+            }
             else
             {
-               String toastText = null;
-               try
-               {
-                  CameraConfigSaver.save(MainActivity.this,
-                                         cameraConfigList,
-                                         input.trim());
-                  toastText = "Configuration Saved";
-               }
-               catch (Exception e)
-               {
-                  Log.e(getClass().getSimpleName(), "Failed to save configuration", e);
-                  toastText = "Failed to save configuration";
-               }
-               finally
-               {
-                  alertDialog.cancel();
-                  if (toastText != null)
-                  {
-                     Toast.makeText(MainActivity.this,
-                                    toastText,
-                                    Toast.LENGTH_SHORT).show();
-                  }
-               }
-
+               finishSavingConfig(alertDialog, configName);
             }
          }
       });
+   }
 
-
+   private void finishSavingConfig(AlertDialog alertDialog, String configName)
+   {
+      String toastText = null;
+      try
+      {
+         CameraConfigSaver.save(MainActivity.this,
+                                cameraConfigList,
+                                configName);
+         toastText = "Configuration Saved";
+      }
+      catch (Exception e)
+      {
+         Log.e(getClass().getSimpleName(), "Failed to save configuration", e);
+         toastText = "Failed to save configuration";
+      }
+      finally
+      {
+         alertDialog.cancel();
+         if (toastText != null)
+         {
+            Toast.makeText(MainActivity.this,
+                           toastText,
+                           Toast.LENGTH_SHORT).show();
+         }
+      }
    }
 
    @Override

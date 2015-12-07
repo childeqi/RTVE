@@ -24,6 +24,21 @@ public class CameraConfigSaver
       // a private constructor makes this class uninstantiable
    }
 
+   public static boolean configWithNameExists(Context c, String configName)
+   {
+      if (c == null || configName == null || configName.isEmpty())
+      {
+         return false;
+      }
+
+      java.io.File configFile = new java.io.File(c.getFilesDir(),
+                                                 CameraConfigSaver.CONFIG_STORAGE_PREFIX
+                                                         + configName
+                                                         + CONFIG_STORAGE_SUFFIX);
+
+      return configFile.exists();
+   }
+
    public static void save(Context c, CameraConfigList list, String configName) throws Exception
    {
       if (c == null || list == null || configName == null)
