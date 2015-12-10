@@ -17,10 +17,26 @@ public class CameraConfigSaver
 {
    // package protected
    static final String CONFIG_STORAGE_PREFIX = "config_";
+   static final String CONFIG_STORAGE_SUFFIX = ".xml";
 
    private CameraConfigSaver()
    {
       // a private constructor makes this class uninstantiable
+   }
+
+   public static boolean configWithNameExists(Context c, String configName)
+   {
+      if (c == null || configName == null || configName.isEmpty())
+      {
+         return false;
+      }
+
+      java.io.File configFile = new java.io.File(c.getFilesDir(),
+                                                 CameraConfigSaver.CONFIG_STORAGE_PREFIX
+                                                         + configName
+                                                         + CONFIG_STORAGE_SUFFIX);
+
+      return configFile.exists();
    }
 
    public static void save(Context c, CameraConfigList list, String configName) throws Exception
@@ -35,7 +51,9 @@ public class CameraConfigSaver
       }
 
       java.io.File configFile = new java.io.File(c.getFilesDir(),
-                                                 CameraConfigSaver.CONFIG_STORAGE_PREFIX + configName);
+                                                 CameraConfigSaver.CONFIG_STORAGE_PREFIX
+                                                         + configName
+                                                         + CONFIG_STORAGE_SUFFIX);
 
       boolean isNewFile;
       if (configFile.exists())
